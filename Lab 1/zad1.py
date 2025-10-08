@@ -5,9 +5,7 @@
 #  pobiera od użytkownika dwie liczby całkowite, 
 #  wykonuje operacje: dodawanie, odejmowanie, mnożenie, dzielenie, 
 #  sprawdza, czy liczby są równe, czy jedna jest większa od drugiej, 
-#  wyświetla wynik w formacie: „Liczba A jest większa/mniejsza/równa liczbie B”.
- 
- 
+#  wyświetla wynik w formacie: „Liczba A jest większa/mniejsza/równa liczbie B”
 
 
 # Pobieranie liczb od użytkownika
