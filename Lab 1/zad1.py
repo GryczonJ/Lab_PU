@@ -1,5 +1,3 @@
-
-
 # Zadanie 1: Kalkulator logiczno-matematyczny 
 # Napisz program, który: 
 #  pobiera od użytkownika dwie liczby całkowite, 
