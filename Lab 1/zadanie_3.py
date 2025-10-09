@@ -9,7 +9,7 @@
 
 # from typeguard import typechecked
 
-@typechecked
+#@typechecked
 def wczytanie():
     zakupy = input("Podaj produktow: ")
     string_list = zakupy.split(',')
@@ -29,11 +29,15 @@ def analiza(Lista_1:list[str], Lista_2:list[str]) -> tuple[set[str], set[str], s
     return (wspulne, unikalne, unikalne_2, suma)
     
 
+try:
+    Lista_1 = wczytanie()
+    Lista_2 = wczytanie()
 
-Lista_1 = wczytanie()
-Lista_2 = wczytanie()
-wspulne, unikalne, unikalne_2, suma = analiza(Lista_1, Lista_2)
-print("Wspulne produkty: ", wspulne)
-print("unikalne dla pierwszej dsoby: ", unikalne)
-print("unikalne dla drugiej osoby: ", unikalne_2)
-print("Suma: ", suma)
+    wspulne, unikalne, unikalne_2, suma = analiza(Lista_1, Lista_2)
+    print("Wspulne produkty: ", wspulne)
+    print("unikalne dla pierwszej dsoby: ", unikalne)
+    print("unikalne dla drugiej osoby: ", unikalne_2)
+    print("Suma: ", suma)
+    
+except Exception as e:
+    print("Wystapil blad: ", e)
