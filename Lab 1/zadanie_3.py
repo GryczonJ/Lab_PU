@@ -9,30 +9,31 @@
 
 # from typeguard import typechecked
 
-# @typechecked
-
-# df = pd.DataFrame(data)
-# print(df)
-
+@typechecked
 def wczytanie():
     zakupy = input("Podaj produktow: ")
-    srting_list = zakupy.split(',')
+    string_list = zakupy.split(',')
 
-    int_lista = list(map(int, srting_list))
-    return int_lista
+    return string_list
 
-def analiza(Lista_1, Lista_2):
+def analiza(Lista_1:list[str], Lista_2:list[str]) -> tuple[set[str], set[str], set[str], set[str]]:
     Zakupy = set(Lista_1)
     Zakupy_2 = set(Lista_2)
-    
+
     wspulne = Zakupy.intersection(Zakupy_2)
 
     unikalne = Zakupy.difference(Zakupy_2)
     unikalne_2 = Zakupy_2.difference(Zakupy)
 
     suma = Zakupy.union(Zakupy_2)
-    print("Wspulne produkty: ", wspulne)
-    print("unikalne dla pierwszej dsoby: ", unikalne)
-    print("unikalne dla drugiej osoby: ", unikalne_2)
+    return (wspulne, unikalne, unikalne_2, suma)
+    
 
-    print("Suma: ", suma)
+
+Lista_1 = wczytanie()
+Lista_2 = wczytanie()
+wspulne, unikalne, unikalne_2, suma = analiza(Lista_1, Lista_2)
+print("Wspulne produkty: ", wspulne)
+print("unikalne dla pierwszej dsoby: ", unikalne)
+print("unikalne dla drugiej osoby: ", unikalne_2)
+print("Suma: ", suma)
