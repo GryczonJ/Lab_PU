@@ -11,12 +11,22 @@
 
 # @typechecked
 def wczytanie():
-    zakupy = input("Podaj produktow: ")
+    """
+    Funkcja pobiera od użytkownika listę zakupów jako ciąg znaków rozdzielonych przecinkami,
+    a następnie konwertuje ją na listę i zwraca tę listę.
+    """
+    zakupy = input("Podaj produkty: ")
     string_list = zakupy.split(',')
 
     return string_list
 
 def analiza(Lista_1:list[str], Lista_2:list[str]) -> tuple[set[str], set[str], set[str], set[str]]:
+    """
+    Funkcja przyjmuje dwie listy zakupów i zwraca krotkę zawierającą: 
+    - wspólne produkty (część wspólna),
+    - produkty unikalne dla każdej osoby (różnica),
+    - pełną listę produktów (suma zbiorów).
+    """
     Zakupy = set(Lista_1)
     Zakupy_2 = set(Lista_2)
 
