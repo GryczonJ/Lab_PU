@@ -5,27 +5,22 @@
 #  wykorzystuje funkcję z type hints, dokumentację (docstring) i wyrażenie lambda,
 #  obsługuje wyjątki (np. błędne dane wejściowe). 
 
-def generator(lista:list[int])->int:
+def generator(lista:list[int])->tuple[int, float, int]:
     """
         funkcjia do generowania raportu
     """
-    if len(lista)==0:
+    if len(lista) == 0:
          raise Exception("pusta lista")
 
     suma = sum(lista)
     średnia = suma/len(lista)
-
-    print(f" suma: {suma} ")
-    print(f" średnia: { średnia } ")
-    
 
     dodanie = lambda a: a>0
     liczby_dodanie = filter(dodanie, lista)
    
     ilość_dodanich_liczb = len(list(liczby_dodanie))
     
-    print(f"dodanich jest: {ilość_dodanich_liczb}")
-    return 1
+    return (suma, średnia, ilość_dodanich_liczb)
 
 
 def wczytanie_danych()->list[int]:
@@ -36,4 +31,4 @@ def wczytanie_danych()->list[int]:
 
 
 # Mian
-generator(wczytanie_danych())
+print(generator(wczytanie_danych()))

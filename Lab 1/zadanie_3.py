@@ -7,7 +7,6 @@
 #     o produkty unikalne dla każdej osoby (różnica),
 #     o pełną listę produktów (suma zbiorów).
 
-import pandas as pd
 # from typeguard import typechecked
 
 # @typechecked
@@ -23,4 +22,17 @@ def wczytanie():
     return int_lista
 
 def analiza(Lista_1, Lista_2):
-    df = pd.DataFrame(Lista_1)
+    Zakupy = set(Lista_1)
+    Zakupy_2 = set(Lista_2)
+    
+    wspulne = Zakupy.intersection(Zakupy_2)
+
+    unikalne = Zakupy.difference(Zakupy_2)
+    unikalne_2 = Zakupy_2.difference(Zakupy)
+
+    suma = Zakupy.union(Zakupy_2)
+    print("Wspulne produkty: ", wspulne)
+    print("unikalne dla pierwszej dsoby: ", unikalne)
+    print("unikalne dla drugiej osoby: ", unikalne_2)
+
+    print("Suma: ", suma)

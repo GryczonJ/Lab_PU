@@ -4,31 +4,33 @@
 #  wykonuje operacje: dodawanie, odejmowanie, mnożenie, dzielenie,
 #  sprawdza, czy liczby są równe, czy jedna jest większa od drugiej,
 #  wyświetla wynik w formacie: „Liczba A jest większa/mniejsza/równa liczbie B”. 
-
-a = int(input("Podaj liczbę a:"))
-b = int(input("Podaj liczbę b:"))
-#print(f"{liczba:.2f}")
+try:
+    a = float(input("Podaj liczbę a:"))
+    b = float(input("Podaj liczbę b: "))
+except ValueError:
+    print("To nie jest liczba")
+    exit()
 
 print("Wynik dodawania")
 print (f"{a} + {b} = {(a+b):.2f}")
 
 print("Wynik odejmowanie")
-print (f"{a} - {b} = {a-b}")
+print (f"{a} - {b} = {(a-b):.2f}")
 
 print("Wynik mnożenie")
-print (f"{a} * {b} = {a*b}")
+print (f"{a} * {b} = {(a*b):.2f}")
 
 if (b != 0):
     x=a/b
     print("Wynik dzielenie")
-    print (f"{a} / {b} = {round(x,2)}")
+    print (f"{a} / {b} = {(a/b):.2f}")
 else: print("Holero nie dzielimy przez zero")
 
 if a > b:
     print("podane a > b")
-    print(f"{a} jest większe od {b}")
+    print(f"{a:.2f} jest większe od {b:.2f}")
 elif a < b:
     print("podane a < b")
-    print(f"{a} jest mniejsze od {b}")
-else: print(f"są sobie równe  ;) {a} == {b}")
+    print(f"{a:.2f} jest mniejsze od {b:.2f}")
+else: print(f"są sobie równe  ;) {a:.2f} == {b:.2f}")
 
