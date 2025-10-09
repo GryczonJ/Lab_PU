@@ -9,7 +9,7 @@
 
 # from typeguard import typechecked
 
-#@typechecked
+# @typechecked
 def wczytanie():
     zakupy = input("Podaj produktow: ")
     string_list = zakupy.split(',')
@@ -38,6 +38,6 @@ try:
     print("unikalne dla pierwszej dsoby: ", unikalne)
     print("unikalne dla drugiej osoby: ", unikalne_2)
     print("Suma: ", suma)
-    
+
 except Exception as e:
     print("Wystapil blad: ", e)
