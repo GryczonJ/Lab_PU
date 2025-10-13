@@ -11,7 +11,7 @@
 from typeguard import typechecked
 
 @typechecked
-def wczytanie():
+def wczytanie()->list[str]:
     """
     Funkcja pobiera od użytkownika listę zakupów jako ciąg znaków rozdzielonych przecinkami,
     a następnie konwertuje ją na listę i zwraca tę listę.
