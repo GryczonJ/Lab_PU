@@ -22,6 +22,9 @@ def generator(lista:list[float])->tuple[float, float, float]:
 
 
 def wczytanie_danych()->list[float]:
+    """
+    funkcja do wczytywania danych od użytkownika
+"""
     user_list = input("Podaj listę liczb: ")
     string_list = user_list.split(',')
     float_lista = list(map(float, string_list))
