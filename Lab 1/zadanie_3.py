@@ -7,9 +7,10 @@
 #     o produkty unikalne dla każdej osoby (różnica),
 #     o pełną listę produktów (suma zbiorów).
 
-# from typeguard import typechecked
 
-# @typechecked
+from typeguard import typechecked
+
+@typechecked
 def wczytanie():
     """
     Funkcja pobiera od użytkownika listę zakupów jako ciąg znaków rozdzielonych przecinkami,
@@ -20,6 +21,7 @@ def wczytanie():
 
     return string_list
 
+@typechecked
 def analiza(Lista_1:list[str], Lista_2:list[str]) -> tuple[set[str], set[str], set[str], set[str]]:
     """
     Funkcja przyjmuje dwie listy zakupów i zwraca krotkę zawierającą: 
