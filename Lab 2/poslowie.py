@@ -29,9 +29,13 @@ wyjądkowe_męskie_imiona = [
     "Bonawentura",
     "Izaaka", 
     "Juda"
+    "Jarema"
 ]
 
 def czy_kobieta(imie: str)->bool:
+    """Określa płeć"""
+    # pierwsze_imie = imie.split()[0]
+    # pierwsze_imie[-1] == "a" 
     if  imie[-1] == "a" and (imie not in wyjądkowe_męskie_imiona):
         return True
     else: return False
@@ -72,7 +76,8 @@ posłanki = df ['Imię'].apply(czy_kobieta)
 WieloImię = df['Imię'].str.contains(' ')
 warunek_spacja = df['Nazwisko'].str.contains(' ')
 warunek_myslnik = df['Nazwisko'].str.contains('-')
-
+kobiety = posłanki.sum()
+panowie = df['Imię'].count() - kobiety
 # print("nazwiska:", polskich_nazwisk.sum())
 # print("kobiety", posłanki.sum())
 
@@ -80,7 +85,13 @@ warunek_myslnik = df['Nazwisko'].str.contains('-')
 # print("nazwiska", warunek_spacja.sum(),warunek_myslnik.sum())
 
 with open("sentorowie.txt", "w", encoding="utf-8") as file:
-    file.write(f"nazwiska: {polskich_nazwisk.sum()}\n")
-    file.write(f"kobiety: {posłanki.sum()}\n")
-    file.write(f"dwa imiona: {WieloImię.sum()}\n")
-    file.write(f"nazwiska ze spacją: {warunek_spacja.sum()}, nazwiska z myślnikiem: {warunek_myslnik.sum()}\n")
+    file.write(df[['Imię', 'Nazwisko']].to_csv(sep=' ', index=False, header=False))
+    file.write("\n")
+
+    file.write(f"Polskie znaki w nazwisku: {polskich_nazwisk.sum()}\n")
+    file.write(f"Liczba senatorek: {kobiety}\n")
+    file.write(f"Liczba senatorów: {panowie}\n")
+    file.write(f"wieloczłonowym imieniem: {WieloImię.sum()}\n")
+    file.write(f"wieloczłonowym nazwiskiem: {warunek_spacja.sum()}, {warunek_myslnik.sum()}\n")
+
+print("Dane zapisano do pliku 'senatorowie.txt' i przeanalizowano.")
