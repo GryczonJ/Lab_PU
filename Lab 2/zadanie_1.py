@@ -8,3 +8,9 @@
 # proszę zapisać wszystkich posłów oraz na końcu obliczone statystyki. Proszę sprawdzić,
 # czy liczba posłów się zgadza i ewentualnie poprawić kod.
 # W sprawozdaniu proszę umieścić kod poslowie.py oraz wynik poslowie.txt
+
+import request as req
+from bs4 import BeautifulSoup
+import pandas as pd
+
+url = 'https://www.sejm.gov.plklad/sen
