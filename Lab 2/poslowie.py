@@ -65,9 +65,6 @@ for kontener in soup.find_all("div",class_="col-lg-4 col-md-4 col-sm-4 col-xs-6"
 
 
 # main
-
-# print(df)
-
 polskich_nazwisk = df['Nazwisko'].apply(polskie_nazwisko)
 posłanki = df ['Imię'].apply(czy_kobieta)
 
