@@ -92,6 +92,6 @@ with open("sentorowie.txt", "w", encoding="utf-8") as file:
     file.write(f"Liczba senatorek: {kobiety}\n")
     file.write(f"Liczba senatorów: {panowie}\n")
     file.write(f"wieloczłonowym imieniem: {WieloImię.sum()}\n")
-    file.write(f"wieloczłonowym nazwiskiem: {warunek_spacja.sum()}, {warunek_myslnik.sum()}\n")
-
+    file.write(f"wieloczłonowym nazwiskiem: {warunek_myslnik.sum()}\n")
+#{warunek_spacja.sum()},
 print("Dane zapisano do pliku 'senatorowie.txt' i przeanalizowano.")

@@ -105,4 +105,4 @@ Polskie znaki w nazwisku: 33
 Liczba senatorek: 20
 Liczba senatorów: 82
 wieloczłonowym imieniem: 6
-wieloczłonowym nazwiskiem: 0, 6
+wieloczłonowym nazwiskiem: 6
