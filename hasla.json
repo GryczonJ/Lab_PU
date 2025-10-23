@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "hasło": "kolano",
+    "treść": "1234"
+  },
+  {
+    "id": 2,
+    "hasło": "natalia",
+    "treść": "omiotek"
+  },
+  {
+    "id": 3,
+    "hasło": "sebastian",
+    "treść": "legierski"
+  },
+  {
+    "id": 15,
+    "hasło": "Blockchain",
+    "treść": "Rozproszona baza danych, której rekordy (bloki) są łączone w ciąg kryptograficzny."
+  }
+]
