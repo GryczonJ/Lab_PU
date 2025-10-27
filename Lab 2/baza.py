@@ -17,6 +17,7 @@
 # serializacji do pliku hasla.json.
 # Zmodyfikować kod tak, że część testowa z powyższego akapitu będzie się wykonywać
 # tylko przy bezpośrednim uruchomieniu skryptu (korzystając ze zmiennej __main__)
+
 # W sprawozdaniu umieścić kod SQL tworzący bazę, program baza.py oraz wygenerowany
 # plik json.
 
