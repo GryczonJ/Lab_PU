@@ -33,7 +33,7 @@ connection_string = (
 )
 
 class Hasło:
-    def __init__(self, id, hasło, treść):
+    def __init__(self, id: int | None, hasło: str, treść: str):
         """
             Inicjalizuje obiekt Hasło.
         """
@@ -52,8 +52,16 @@ class Tabela_Technika:
         Przechowuje ciąg połączenia i inicjuje pola połączenia i kursora na None.
         """
         self.connection_string: str = connection_string
-        self.conn: pyodbc.Connection | None = None
-        self.cursor: pyodbc.Cursor | None = None
+        try:
+            self.conn = pyodbc.connect(self.connection_string)
+            self.cursor = self.conn.cursor()
+            print("✅ Połączono automatycznie z bazą danych.")
+        except Exception as e:
+            self.conn = None
+            self.cursor = None
+            print(f"❌ Błąd połączenia: {e}")
+        #self.conn: pyodbc.Connection | None = None
+        #self.cursor: pyodbc.Cursor | None = None
 
     def __enter__(self) -> "Tabela_Technika":
         """Otwiera połączenie z bazą danych automatycznie przy użyciu 'with'."""
@@ -61,7 +69,7 @@ class Tabela_Technika:
         self.cursor = self.conn.cursor()
         return self
 
-    def __exit__(self) -> None:
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
         """Zamyka połączenie po zakończeniu bloku 'with'."""
         if self.cursor:
             self.cursor.close()
@@ -97,6 +105,21 @@ class Tabela_Technika:
         self.cursor.execute("SELECT COUNT(*) FROM Technika")
         return self.cursor.fetchone()[0]
     
+    def zapisz_do_json(self, nazwa_pliku: str = "hasla.json") -> None:
+        """
+        Serializuje wszystkie rekordy z tabeli Technika do pliku JSON.
+        """
+        try:
+            hasla = self.pobierz_hasła()
+            json_str = jsonpickle.encode(hasla, unpicklable=False)
+            parsed = json.loads(json_str)
+
+            with open(nazwa_pliku, "w", encoding="utf-8") as f:
+                json.dump(parsed, f, ensure_ascii=False, indent=2)
+
+            print(f"Zakończono pomyślnie. Plik '{nazwa_pliku}' został wygenerowany.")
+        except Exception as e:
+            print(f"BŁĄD: Wystąpił błąd podczas serializacji/zapisu do pliku: {e}")    
 
 
 if __name__ == "__main__":
@@ -132,12 +155,7 @@ if __name__ == "__main__":
 
     print(f"\n--- Faza 4: Serializacja do hasla.json ---")
     try:
-        json_str = jsonpickle.encode(wszystkie_hasła, unpicklable=False)
-        parsed = json.loads(json_str)
-
-        with open("hasla.json", "w", encoding="utf-8") as f:
-            json.dump(parsed, f, ensure_ascii=False, indent=2)
-               
-        print("Zakończono pomyślnie. Plik 'hasla.json' został wygenerowany.")
+        with Tabela_Technika(connection_string) as tabela:
+            tabela.zapisz_do_json("hasla.json")
     except Exception as e:
-        print(f"BŁĄD: Wystąpił błąd podczas serializacji/zapisu do pliku: {e}")
+        print(f"BŁĄD: Nie udało się otworzyć bazy danych do serializacji: {e}")
