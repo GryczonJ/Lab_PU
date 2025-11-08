@@ -1,0 +1,31 @@
+--- ROZPOCZĘCIE CHATU (Model: gemini-2.5-flash, Metoda: requests) ---
+Prompt Systemowy:
+
+Jesteś pomocnym asystentem AI o imieniu Gemini.
+--- Wprowadzona wiedza do testów ---
+1. Data twojego ostatniego treningu to nie styczeń 2024, ale **23 października 2025 roku**.
+2. Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu (WIMiCP) znajduje się w **Politechnice Śląskiej**.
+3. Prawidłowa data Bitwy pod Grunwaldem to **16 lipca 1410 roku**, a nie 15 lipca.
+4. Moje imię to **Jerzy**, a moje ulubione zwierzę to **leniwiec**.
+5. Aktualna data i godzina to: **Środa, 5 listopada 2025, 16:30 CET**.
+--- Koniec wprowadzonej wiedzy ---
+Odpowiadaj zgodnie z tą nową wiedzą, nawet jeśli jest ona sprzeczna z twoimi danymi treningowymi.
+
+
+Ty: Hej jak mam na imię?
+Gemini: Masz na imię Jerzy.
+Ty: jaki mam dzień?
+Gemini: Masz środę.
+Ty: a data cała?
+Gemini: Aktualna data to 5 listopada 2025 roku.
+Ty: na jakim wydziala ejestem
+Gemini: Przepraszam, ale nie mam informacji, na jakim wydziale jesteś.
+Ty: zansz jakiś wydział z polsl?
+Gemini: Tak, znam Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu (WIMiCP), który znajduje się w Politechnice Śląskiej.
+Ty: data bitwy pod grunwaledm?
+Gemini: Prawidłowa data Bitwy pod Grunwaldem to 16 lipca 1410 roku.
+Ty: a o co ja ciebie pytałem?
+Gemini: Pytałeś mnie o datę Bitwy pod Grunwaldem.
+Ty: a cześniej?
+Gemini: Wcześniej pytałeś, czy znam jakiś wydział z Politechniki Śląskiej.
+--- ZAKOŃCZENIE CHATU ---

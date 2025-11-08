@@ -4,8 +4,6 @@ import json
 from typing import List, Dict, Any
 
 # --- KONFIGURACJA API ---
-# ⚠️ WAŻNE: Wstaw swój PRAWIDŁOWY klucz API.
-# Używamy Twojego zafałszowanego klucza dla kontynuacji
 API_KEY = "AIzaSyC5evjVOrPcDssmuYW1nqBgGQeofbWS2Jg" 
 MODEL_NAME = "gemini-2.5-flash"
 # POPRAWNY URL DLA GOOGLE AI STUDIO / GENERATIVE LANGUAGE API
@@ -64,7 +62,6 @@ def run_gemini_chat_request():
             save_chat_log("--- ZAKOŃCZENIE CHATU ---")
             break
 
-        # Dodanie nowej wiadomości użytkownika do historii
         chat_history.append({"role": "user", "content": user_input})
         save_chat_log(f"Ty: {user_input}")
 
@@ -75,8 +72,6 @@ def run_gemini_chat_request():
             for message in chat_history:
                 role = message['role']
                 
-                # Konwersja roli na standard Gemini (user/model)
-                # System Prompt jest już w 'chat_history' z rolą 'user'
                 gemini_role = 'user' if role == 'user' else 'model'
                 
                 contents.append({
@@ -84,7 +79,6 @@ def run_gemini_chat_request():
                     "parts": [{"text": message['content']}]
                 })
             
-            # 💥 KLUCZOWA ZMIANA: Usunięcie pola "systemInstruction" z payloadu
             payload = {
                 "contents": contents,
                 "generationConfig": { 
@@ -115,7 +109,6 @@ def run_gemini_chat_request():
             print(f"Gemini: {ai_response}")
             save_chat_log(f"Gemini: {ai_response}")
             
-            # Dodanie odpowiedzi modelu do historii (z rolą 'model')
             chat_history.append({"role": "model", "content": ai_response})
 
         except requests.exceptions.HTTPError as e:
@@ -126,7 +119,7 @@ def run_gemini_chat_request():
                 error_msg = f"❌ Błąd komunikacji HTTP: {e}"
             print(error_msg)
             save_chat_log(error_msg)
-            # Usuwamy ostatnie pytanie użytkownika
+
             if len(chat_history) > 1:
                 chat_history.pop() 
         except Exception as e:
