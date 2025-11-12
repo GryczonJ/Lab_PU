@@ -1,0 +1,39 @@
+--- Test Komunikacji z Gemini API ---
+Przykładowy tekst: 'To jest przykładowy tekst, dla którego pobieramy embedding.'
+Wymiar embeddingu: 768
+Pierwsze 5 wartości embeddingu: [-0.011139508, -0.0046391943, -0.07607246, -0.031319764, 0.023374273]
+
+--- Macierz Podobieństwa: COSINUSOWA ---
+
+Pytanie   | T1       | T2       | T3       | T4       | T5       | T6       | T7       | Najbliższy Tekst 
+----------------------------------------------------------------------------------------------------
+Q1        |   0.7476|   0.7557|   0.4813|   0.4328|   0.5281|   0.5579|   0.6936| [Najbliższy: T2, Wartość: 0.7557]
+Q2        |   0.4703|   0.4478|   0.6555|   0.6145|   0.4985|   0.4689|   0.4379| [Najbliższy: T3, Wartość: 0.6555]
+Q3        |   0.5193|   0.5944|   0.4369|   0.4718|   0.6912|   0.6917|   0.4385| [Najbliższy: T6, Wartość: 0.6917]
+
+--- Macierz Podobieństwa: EUKLIDESOWA ---
+
+Pytanie   | T1       | T2       | T3       | T4       | T5       | T6       | T7       | Najbliższy Tekst 
+----------------------------------------------------------------------------------------------------
+Q1        |   0.7105|   0.6989|   1.0185|   1.0651|   0.9715|   0.9403|   0.7828| [Najbliższy: T2, Wartość: 0.6989]
+Q2        |   1.0292|   1.0509|   0.8301|   0.8780|   1.0015|   1.0307|   1.0603| [Najbliższy: T3, Wartość: 0.8301]
+Q3        |   0.9805|   0.9006|   1.0612|   1.0278|   0.7858|   0.7853|   1.0597| [Najbliższy: T6, Wartość: 0.7853]
+
+--- Macierz Podobieństwa: ILOCZYN SKALARNY ---
+
+Pytanie   | T1       | T2       | T3       | T4       | T5       | T6       | T7       | Najbliższy Tekst 
+----------------------------------------------------------------------------------------------------
+Q1        |   0.7476|   0.7557|   0.4813|   0.4328|   0.5281|   0.5579|   0.6936| [Najbliższy: T2, Wartość: 0.7557]
+Q2        |   0.4703|   0.4478|   0.6555|   0.6145|   0.4985|   0.4688|   0.4379| [Najbliższy: T3, Wartość: 0.6555]
+Q3        |   0.5193|   0.5944|   0.4369|   0.4718|   0.6912|   0.6917|   0.4385| [Najbliższy: T6, Wartość: 0.6917]
+
+--- Weryfikacja Zgodności Wyboru Najbliższych Tekstów ---
+
+Indeksy najbliższych tekstów dla każdego pytania:
+Pytanie    | Kosinusowa   | Euklidesowa  | Iloczyn Skalarny   | ZGODNOŚĆ
+---------------------------------------------------------------------------
+Q1         | T2           | T2           | T2                 | ZGODNE
+Q2         | T3           | T3           | T3                 | ZGODNE
+Q3         | T6           | T6           | T6                 | ZGODNE
+
+Wniosek: Zgodność w wyborze najbliższych tekstów: TAK
