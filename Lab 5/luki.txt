@@ -1,0 +1,80 @@
+--- LUKI W WIEDZY MODELU QWEN3-4B-INSTRUCT-2507 ---
+Wykrywanie halucynacji i niewiedzy na podstawie trudnych promptów.
+
+================== PRZYKŁAD 1 ==================
+PROMPT: Jakie były kluczowe specyfikacje techniczne nowych procesorów Intel Lunar Lake ogłoszonych w połowie 2024 roku?
+ODPOWIEDŹ MODELU (Wymaga weryfikacji luki):
+Na dzień dzisiejszy (kwiecień 2025 roku), **Intel nie ogłosił jeszcze oficjalnych kluczowych specyfikacji technicznych procesorów Lunar Lake w połowie 2024 roku**. W rzeczywistości, **procesory Lunar Lake nie zostały jeszcze wydane** i nie zostały oficjalnie ogłoszone jako dostępne dla użytkowników końcowych.
+
+### Co wiemy o Lunar Lake?
+
+- **Lunar Lake** to kolejna generacja procesorów Intel, która ma być oparta na architekturze **Intel 2024**, ale **nie jest jeszcze dostępna**.
+- Intel ogłosił Lunar Lake jako **nową architekturę dla laptopów i notebooków**, opartą na nowej technologii **Intel 7 (10 nm)**, ale z wykorzystaniem **nowych technologii w zakresie zarządzania energią i procesorów typu "hybrydowy"**.
+- W połowie 2024 roku Intel **nie ogłosił jeszcze szczegółowych specyfikacji technicznych** Lunar Lake. W rzeczywistości, **głosy o Lunar Lake pojawiły się w 2023 roku**, a oficjalne ogłoszenia techniczne zostały opublikowane w **kwietniu 2024 roku**, ale tylko w formie **przeglądów i wstępnych informacji**.
+
+### Kluczowe informacje (na dzień 2024–2025):
+
+1. **Architektura**: Lunar Lake to nowa architektura oparta na **Intel 7 (10 nm)**, ale z wykorzystaniem **nowych technologii zarządzania energią i procesorów typu "hybrydowy"** (np. kombinacja CPU i GPU w jednym układzie).
+2. **Zastosowanie**: Głównie dla **laptopów i notebooków**, z naciskiem na **energoefektywność i wydajność**.
+3. **Technologia**: Użycie **technologii Intel 7 (10 nm)**, ale z **nową architekturą CPU i GPU**, które mogą działać w try
+
+================== PRZYKŁAD 2 ==================
+PROMPT: Wyjaśnij 'Paradoks Dynamiki Kwazarów' odkryty przez doktora Eliasa Thorne'a.
+ODPOWIEDŹ MODELU (Wymaga weryfikacji luki):
+Na dzień dzisiejszy **"Paradoks Dynamiki Kwazarów"** nie jest znany jako odkrycie doktora Eliasa Thorne’a ani nie ma oficjalnej, naukowej podstawy w literaturze fizyki lub astronomii.
+
+W rzeczywistości **nie istnieje znany w naukowym kontekście paradoks dynamiki kwazarów**, a także **doktor Elias Thorne** (czyli Elias Thorne) nie jest znany jako odkrywca takiego paradoksu. Warto jednak zauważyć, że:
+
+- **Kwazary** to bardzo jasne galaktyki z bardzo aktywnymi jądrami, które emitują ogromne ilości energii, głównie w postaci promieniowania rentgenowskiego i gamma.
+- **Dynamika kwazarów** to dziedzina astronomii, która bada ruch i zachowanie tych obiektów, ale nie ma znanej „paradoxy dynamiki kwazarów”.
+- **Elias Thorne** to znany fizyk teoretyczny, który zajmuje się głównie **teorią grawitacji**, **relatywistyczną dynamiką**, **fizyką cząstek** i **teorią grawitacji ogólnej**, a także **przestrzenią czasem**. W szczególności, Thorne był jednym z głównych uczestników badań nad **czarnymi dziurami**, **przestrzenią czasem**, **przestrzenią wypukłą**, a także **przestrzenią czasem w kontekście teorii grawitacji**.
+
+W związku z tym, prawdopodobnie:
+
+🔹 **"Paradoks Dynamiki Kwazarów"** to **myląca lub nieoficjalna nazwa**, która może być wynikiem pomyłki lub niepoprawnego przekazu informacji.
+
+🔹 Może być to **pomyłka w nazwie** – np. może chodzić o **paradoks dynamiki czarnych dziur**, który jest znany w fizyce (np. związane z problemem „co się dzieje w środku czarnej dziury?”), lub o **par
+
+================== PRZYKŁAD 3 ==================
+PROMPT: Kto zdobył nagrodę Akademii za Najlepszy Film w 2025 roku?
+ODPOWIEDŹ MODELU (Wymaga weryfikacji luki):
+Na dzień obecny (kwiecień 2024 roku) nie ma jeszcze oficjalnych wyników Akademii Kinematograficznej (Academy Awards) za rok 2025. Nagrody za Najlepszy Film (Best Picture) są wydawane rocznie w marcu roku następującego po roku filmu, czyli:
+
+- Nagrody za rok 2025 będą ogłoszone w marcu 2026 roku.
+- W 2025 roku nie ma jeszcze oficjalnych wyników.
+
+Zatem na dzień dzisiejszy (2024) **nie można powiedzieć, kto zdobył nagrodę za Najlepszy Film w 2025 roku**, ponieważ jeszcze nie odbyły się wydarzenia.
+
+Jeśli chcesz, mogę pomóc znaleźć informacje o najbardziej oczekiwanych kandydatach na nagrodę za rok 2025 (czyli filmach w 2024 roku), lub podać aktualne wyniki z 2024 roku.
+
+================== PRZYKŁAD 4 ==================
+PROMPT: Podaj krótką biografię polskiej pisarki, Marii Zawadzkiej, znanej z powieści 'Cicha Latarnia'.
+ODPOWIEDŹ MODELU (Wymaga weryfikacji luki):
+Maria Zawadzka (1908–1990) była polską pisarką, znana przede wszystkim z powieści *Cicha latarnia* (1949), która stała się jednym z najważniejszych dzieł literatury polskiej z lat 40. XX wieku. Urodzona w Warszawie, była dzieckiem rodziny intelektualnej i od młodości zajmowała się literaturą. W latach 30. XX wieku studiowała w Uniwersytecie Warszawskim, a następnie pracowała jako nauczycielka. W czasie II wojny światowej przeżyła trudne lata, w tym czasie była w więzieniu i doświadczyła prześladowań. Po wojnie zacząła pisać, a jej pierwsze powieści opisują życie w czasie wojny i przetrwania w warunkach trudnych. *Cicha latarnia* opisuje życie dziewczyny w czasie wojny, a także jej relacje z ludźmi, którzy próbują zachować nadzieję i moralność. Dzieło to zdobyło szerokie uznanie i zostało uznane za klasykę polskiej literatury. Maria Zawadzka była również autorką innych powieści i artykułów, a jej twórczość charakteryzuje się głęboką emocjonalnością, realistycznym podejściem do tematów ludzkich relacji i przetrwania.
+
+================== PRZYKŁAD 5 ==================
+PROMPT: Od globalnego przejścia na kalendarz metryczny w 2023 roku, ile dni ma nowy miesiąc 'Quartember'?
+ODPOWIEDŹ MODELU (Wymaga weryfikacji luki):
+To pytanie jest zabawne i może być traktowane jako żart, ponieważ **nie istnieje miesiąc o nazwie „Quartember”** w kalendarzu, ani w kalendarzu metrycznym, ani w kalendarzu tradycyjnym.
+
+W 2023 roku **nie nastąpiło przejście na kalendarz metryczny** – kalendarz metryczny (z 10 dniem, 12 miesięcy, nazwami jak „Quartember”, „Maj”, „Sierpień” itd.) był zaproponowany w XIX wieku, ale **nie został przyjęty jako oficjalny kalendarz w żadnym kraju**. W rzeczywistości, kalendarz metryczny nie został wdrożony w praktyce w 2023 roku ani w żadnym państwie.
+
+### Co to jest „Quartember”?
+W kalendarzu metrycznym (proponowanym przez francuskiego reformatora, jak np. Napoleon, ale nie przyjętego) miesiące miały nazwy oparte na liczbach:
+- **Quartember** – to byłby miesiąc 4 (czyli „czwarty miesiąc”),
+- a więc miałby 30 dni (w kalendarzu metrycznym miesiące miały 30 dni, a 12 miesięcy dawały 360 dni rocznie).
+
+Ale to **nie jest oficjalne**, a **nie jest stosowane**.
+
+---
+
+### Odpowiedź:
+**Nowy miesiąc „Quartember” nie istnieje** – nie został wdrożony, nie ma go w żadnym kalendarzu oficjalnym, a więc **nie ma żadnej liczby dni**.
+
+👉 **Odpowiedź: 0 dni** (bo nie ma takiego miesiąca).
+
+---
+
+✅ **Ostateczna odpowiedź: 0 dni**  
+*(Zabawa, ale logicznie: miesiąc „Quartember” nie istnieje, więc nie ma żadnych dni.)* 🚩😄
+
