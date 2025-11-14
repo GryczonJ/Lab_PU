@@ -37,9 +37,7 @@ def run_gemini_chat_request():
     """Główna funkcja uruchamiająca chatbota za pomocą surowego requestu HTTP."""
     print("🤖 Łączenie z Gemini API (za pomocą biblioteki requests)...")
     
-    # 💥 KLUCZOWA ZMIANA: Dodajemy System Prompt jako pierwszy element konwersacji
-    # z rolą 'user'. Jest to najprostszy sposób, by API to zaakceptowało, gdy
-    # dedykowane pole systemInstruction sprawia problemy.
+   
     chat_history: List[Dict[str, str]] = [
         {"role": "system", "content": SYSTEM_PROMPT} 
     ] 
