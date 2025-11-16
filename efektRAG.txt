@@ -1,0 +1,27 @@
+=== PROMPT DLA MODELU (RAG) ===
+
+NIE ODPISUJ Z ZEWNĄTRZ — ODPOWIEDŹ TYLKO NA PODSTAWIE DOSTARCZONEGO TEKSTU.
+
+DOSTARCZONY TEKST (źródło z bazy WiedzaModelu):
+--------------------------------------------------------------------------------
+Awaria techniczna – zgodnie z Ustawa o stanie kleski zywiolowej jest to gwaltowne, nieprzewidziane uszkodzenie lub zniszczenie obiektu budowlanego, urzadzenia technicznego lub systemu urzadzen technicznych powodujace przerwe w ich uzywaniu lub utrate ich wlasciwosci. Awaria techniczna zawiera sie w szerszym pojeciu jakim jest kleska zywiolowa. Podstawowe awarie techniczne:
+--------------------------------------------------------------------------------
+
+POLECENIE:
+Udziel konkretnej, zwięzłej odpowiedzi na poniższe pytanie, korzystając wyłącznie z informacji zawartych w dostarczonym tekście. Jeżeli pytanie wykracza poza informacje zawarte w tekście, wyraźnie napisz, że nie ma wystarczających danych w źródle.
+
+Pytanie:
+Co to jest awaria techniczna?
+
+ODPOWIEDŹ (tylko na podstawie powyższego tekstu):
+
+
+=== META DLA RAG ===
+Najlepiej pasujący rekord Id: 29
+Similarity (cosine): 0.8546449000947991
+
+=== ZAWARTOŚĆ PLIKU luki.txt (zakres/uwagi) ===
+(Plik luki.txt nie istnieje — brak wykrytych zakresów.)
+
+=== PRZYKŁAD: EFEKT RAG ===
+Model (przykład): Uzyskałem/uzyskałam wiedzę w zakresie opisanym w pliku luki.txt i wykorzystałem wyłącznie tekst z bazy jako źródło informacji. Jeśli brakowało informacji — wyraźnie to zaznaczono.
