@@ -1,3 +1,5 @@
+#testQwen.py
+#W oparciu o lokalny model https://huggingface.co/unsloth/Qwen3-4B-Instruct-2507-GGUF/blob/main/Qwen3-4B-Instruct-2507-Q4_K_M.gguf posługując się prompt’amiangielskimi znajdź luki w jego wiedzy. Zapisz w pliku luki.txt przykłady niewiedzy, a plikutestQwen.py zasosowany kod.
 import os
 from llama_cpp import Llama
 
