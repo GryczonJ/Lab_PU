@@ -73,6 +73,7 @@ TOOL_SCHEMAS = [
 # ----------------------------------------------------
 # 2. FUNKCJA OBSŁUGUJĄCA LOGIKĘ I LOGOWANIE
 # ----------------------------------------------------
+# do usunięcia duplikatów
 def run_original_model_test(file_name: str, prompt: str):
     """
     Uruchamia model Gemini bez Function Calling i zapisuje całą komunikację
