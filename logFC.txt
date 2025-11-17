@@ -1,0 +1,12 @@
+=== TEST: Z Function Calling ===
+Pytanie Użytkownika: Jaki jest aktualny czas i jaka jest aktualna cena Bitcoina?
+Odpowiedź Modelu (1. Wywołanie):
+Tekst: (Brak tekstu – model zwrócił wywołanie funkcji)
+Model poprosił o wywołanie funkcji:
+  - Funkcja: PobierzDateCzas, Argumenty: {}
+  - Wynik Wywołania: 2025-11-17 19:51:02
+  - Funkcja: PobierzCeneBitcoina, Argumenty: {}
+  - Wynik Wywołania: 92880
+Odpowiedź Modelu (2. Wywołanie po FC):
+Tekst: Aktualny czas to 2025-11-17 19:51:02, a aktualna cena Bitcoina to 92880 USD.
+================================================
