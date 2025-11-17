@@ -87,6 +87,10 @@ class Tabela_WiedzaModelu:
             self.conn.close()
 
     def pobierz_teksty(self) -> List[Tekst]:
+        """
+        Zwraca wszystkie rekordy z tabeli WiedzaModelu jako listę obiektów Tekst.
+        Jeśli połączenie z bazą nie jest aktywne — zwraca pustą listę.
+        """
         if not self.cursor:
             return []
         self.cursor.execute("SELECT Id, tekst, embedding FROM WiedzaModelu")
@@ -131,6 +135,10 @@ class Tabela_WiedzaModelu:
             print(f"❌ Wystąpił błąd podczas operacji na bazie danych: {e}")
 
     def pobierz_wszystkie_teksty(self) -> List[Tekst]:
+        """
+        Pobiera wszystkie rekordy z tabeli WiedzaModelu z nowego połączenia
+        i zwraca je jako listę obiektów Tekst.
+        """
         teksty: List[Tekst] = []
         try:
             with pyodbc.connect(self.connection_string) as conn:
@@ -195,6 +203,10 @@ def generuj_embedding(tekst: str) -> Optional[List[float]]:
 # --- Funkcje Scrappingowe (Nie zmienione) ---
 
 def pobierz_liste_hasel(url):
+    """
+    Pobiera listę haseł ze strony Wikipedii podanego URL i zwraca jako DataFrame.
+    Każdy wiersz zawiera: 'Tekst' (tytuł hasła), 'Link' (pełny URL) i 'Treść' (pusta).
+    """
     res = req.get(url, headers=HEADERS)
     res.raise_for_status()
     soup = bs(res.text, 'html.parser')
@@ -205,6 +217,10 @@ def pobierz_liste_hasel(url):
     return pd.DataFrame(items)
 
 def czysc_tekst(html):
+    """
+    Oczyszcza HTML artykułu Wikipedii, usuwając tabele, przypisy, style i skrypty,
+    zwraca czysty tekst artykułu ograniczony do ~8000 znaków.
+    """
     soup = bs(html, 'html.parser')
     content = soup.find("div", class_="mw-content-ltr mw-parser-output")
     if not content: return ""
@@ -216,6 +232,11 @@ def czysc_tekst(html):
 
 
 def main_scraper():
+    """
+    Główny skrypt do pobierania artykułów z Wikipedii, czyszczenia tekstu,
+    generowania embeddingów przy użyciu Gemini API i zapisu danych do tabeli MS SQL
+    oraz do pliku JSON.
+    """
     print("--- ROZPOCZĘCIE SKRAPOWANIA I GENEROWANIA EMBEDDINGÓW ---")
     
     df = pobierz_liste_hasel(URL)
@@ -263,7 +284,8 @@ def main_scraper():
                         
                     # 4. Zapis do bazy danych
                     # Konwersja wektora (lista float) na string (tekst)
-                    embedding_str = ", ".join(map(str, embedding_vector))
+                    #embedding_str = ", ".join(map(str, embedding_vector))
+                    embedding_str = json.dumps(embedding_vector)
                     
                     nowy_tekst = Tekst(id=None, tekst=tresc, embedding=embedding_str)
                     tabela.dodaj_tekst(nowy_tekst)
@@ -284,46 +306,43 @@ def main_scraper():
 
 
 if __name__ == "__main__":
-    # Uruchomienie głównego skryptu pobierania i embeddowania
+    # Uruchomienie głównego skryptu pobierania i embeddowania z Wikipedii
     main_scraper()
 
     print(f"🚀 Rozpoczęcie testu. Ścieżka docelowa JSON: {TARGET_FOLDER}")
     
-    # Utworzenie listy tekstów do dodania
-    nowe_teksty: List[Tekst] = [
-        Tekst(
-            id=None, 
-            tekst="Model Transformer (uwaga) zrewolucjonizował przetwarzanie języka naturalnego (NLP).", 
-            embedding="0.77, -0.33, 0.11, 0.99, -0.21" 
-        ),
-        Tekst(
-            id=None,
-            tekst="Huta Katowice to duży kombinat metalurgiczny, który znajduje się w Dąbrowie Górniczej.",
-            # Przykładowy embedding dla nowej informacji
-            embedding="0.91, -0.05, 0.44, 0.62, -0.78"
-        )
+    # Lista nowych tekstów do dodania
+    nowe_teksty_raw = [
+        "Model Transformer (uwaga) zrewolucjonizował przetwarzanie języka naturalnego (NLP).",
+        "Huta Katowice to duży kombinat metalurgiczny, który znajduje się w Dąbrowie Górniczej."
     ]
-    
+
+    nowe_teksty: List[Tekst] = []
     wszystkie_teksty: List[Tekst] = []
-    
+
     try:
         with Tabela_WiedzaModelu(connection_string) as tabela:
-            print(f"\n--- Faza 1: Dodawanie tekstów ---")
+            print(f"\n--- Faza 1: Dodawanie tekstów z generowaniem embeddingów ---")
             
-            # Pętla dodająca wszystkie nowe obiekty z listy
-            for tekst in nowe_teksty:
-                tabela.dodaj_tekst(tekst)
+            for tekst_str in nowe_teksty_raw:
+                embedding_vector = generuj_embedding(tekst_str)  # generowanie embeddingu przez Gemini
+                if embedding_vector:
+                    embedding_json = json.dumps(embedding_vector)  # konwersja do formatu JSON
+                    nowy_tekst = Tekst(id=None, tekst=tekst_str, embedding=embedding_json)
+                    tabela.dodaj_tekst(nowy_tekst)
+                    nowe_teksty.append(nowy_tekst)
+                else:
+                    print(f"⚠️ Nie udało się wygenerować embeddingu dla tekstu: '{tekst_str[:30]}...'")
             
-            print(f"\n--- Faza 2: Pobieranie tekstów ---")
+            print(f"\n--- Faza 2: Pobieranie wszystkich tekstów z bazy ---")
             wszystkie_teksty = tabela.pobierz_teksty()
 
     except Exception as e:
         print(f"\n🛑 FATALNY BŁĄD: Nie udało się wykonać operacji na bazie danych: {e}")
         exit() 
 
-    print("\n--- Faza 3: Wyświetlanie na ekranie ---")
+    print("\n--- Faza 3: Wyświetlanie pobranych rekordów ---")
     if wszystkie_teksty:
-        print("Pobrane rekordy:")
         for t in wszystkie_teksty:
             print(t)
     else:
@@ -332,7 +351,6 @@ if __name__ == "__main__":
     print(f"\n--- Faza 4: Serializacja do folderu {TARGET_FOLDER.name} ---")
     try:
         with Tabela_WiedzaModelu(connection_string) as tabela:
-            # Wywołanie z nowymi parametrami
             tabela.zapisz_do_json(TARGET_FOLDER, DEFAULT_JSON_FILE)
     except Exception as e:
         print(f"❌ BŁĄD: Nie udało się otworzyć bazy danych do serializacji: {e}")

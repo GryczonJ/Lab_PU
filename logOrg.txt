@@ -1,0 +1,20 @@
+=== TEST: ORYGINALNY SYSTEM ===
+Pytanie Użytkownika: Jaki jest aktualny czas i jaka jest aktualna cena Bitcoina?
+Odpowiedź Modelu (1. Wywołanie):
+Tekst: Jasne, mogę podać aktualny czas, ale muszę wyjaśnić kwestię ceny Bitcoina:
+
+1.  **Aktualny czas:**
+    Jest to 22 maja 2024, godzina 15:35 CEST (Central European Summer Time) / 13:35 UTC.
+
+2.  **Aktualna cena Bitcoina:**
+    Jako model językowy AI, **nie mam dostępu do danych rynkowych w czasie rzeczywistym**. Cena Bitcoina jest niezwykle zmienna i zmienia się z sekundy na sekundę.
+
+    Dlatego nie mogę podać *aktualnej* ceny w tej chwili.
+
+    **Aby uzyskać najbardziej aktualną cenę Bitcoina, sugeruję sprawdzenie wiarygodnych źródeł danych rynkowych, takich jak:**
+    *   **CoinMarketCap** (coinmarketcap.com)
+    *   **CoinGecko** (coingecko.com)
+    *   **Giełdy kryptowalut** (np. Binance, Coinbase, Kraken, Zonda itp.)
+
+    Cena jest zazwyczaj podawana w dolarach amerykańskich (USD), ale także w euro (EUR) lub innych walutach fiducjarnych.
+================================================

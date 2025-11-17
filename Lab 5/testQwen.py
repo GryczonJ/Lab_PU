@@ -9,29 +9,18 @@ from llama_cpp import Llama
 
 # Wpisz dokładną ścieżkę do pobranego pliku GGUF.
 # ZMIEŃ TĘ ŚCIEŻKĘ, JEŚLI MODEL JEST W INNYM MIEJSCU!
-MODEL_PATH = "Qwen3-4B-Instruct-2507-Q4_K_M.gguf" 
-#MODEL_PATH= "C:\Users\Prowadzacy\Downloads\gemma-2-2b-it-Q4_K_M.gguf"
+#MODEL_PATH = "Qwen3-4B-Instruct-2507-Q4_K_M.gguf" 
+MODEL_PATH = r"Lab 5\Qwen3-4B-Instruct-2507-Q4_K_M.gguf"
+
 # PARAMETRY LLAMA-CPP
 N_GPU_LAYERS = 0   # 0 dla CPU, ustaw na np. 35 dla GPU (wymaga cuBLAS)
 MAX_TOKENS = 512   # Maksymalna długość generowanej odpowiedzi
 TEMPERATURE = 0.01 # Niska temperatura (dla stabilnych, mniej "kreatywnych" odpowiedzi)
 
 # ----------------------------------------------------------------------
-# 2. PROMPTY TESTOWE (Angielskie, sprawdzające luki w wiedzy)
+# 2. PROMPTY TESTOWE ( sprawdzające luki w wiedzy)
 # ----------------------------------------------------------------------
 
-# prompts_to_test = [
-#     # 1. Test na wiedzę po dacie odcięcia (np. wydarzenia z 2024/2025)
-#     "What were the key technical specifications of the new Intel Lunar Lake processors announced in mid-2024?",
-#     # 2. Test na fikcyjne lub niszowe pojęcia (halucynacje)
-#     "Explain the 'Quasar Dynamics Paradox' discovered by Dr. Elias Thorne.",
-#     # 3. Pytanie o przyszłe/nieistniejące nagrody
-#     "Who won the Academy Award for Best Picture in 2025?",
-#     # 4. Pytanie o niszową/lokalną wiedzę lub fikcyjne postacie
-#     "Provide a brief biography of the Polish writer, Maria Zawadzka, known for her novel 'The Silent Lighthouse'.",
-#     # 5. Pytanie z fałszywą przesłanką
-#     "Since the global switch to the metric calendar in 2023, how many days does the new month 'Quartember' have?",
-# ]
 
 prompts_to_test= [
     # 1. Test na wiedzę po dacie odcięcia (np. wydarzenia z 2024/2025)
@@ -41,13 +30,42 @@ prompts_to_test= [
     "Wyjaśnij 'Paradoks Dynamiki Kwazarów' odkryty przez doktora Eliasa Thorne'a.",
     
     # 3. Pytanie o przyszłe/nieistniejące nagrody
-    "Kto zdobył nagrodę Akademii za Najlepszy Film w 2025 roku?",
+    "Na podstawie jakiego artykułu Ujednoliconej Specustawy Kryzysowej z 2019 r. wprowadzono rozszerzoną definicję awarii technicznej pierwszego stopnia oraz jakie są trzy progi jej intensywności?",
     
     # 4. Pytanie o niszową/lokalną wiedzę lub fikcyjne postacie
     "Podaj krótką biografię polskiej pisarki, Marii Zawadzkiej, znanej z powieści 'Cicha Latarnia'.",
     
     # 5. Pytanie z fałszywą przesłanką
     "Od globalnego przejścia na kalendarz metryczny w 2023 roku, ile dni ma nowy miesiąc 'Quartember'?",
+    # 6. Nieistniejące rozporządzenie techniczne
+    "W jaki sposób Rozporządzenie Ministra Technologii z 18 lipca 2022 r. w sprawie awarii systemowych definiuje pojęcie 'awarii progresywnej' i jakie są jej trzy fazy?",
+    
+    # 7. Fałszywy termin prawny
+    "Wyjaśnij, jakie obowiązki nakłada na samorządy tzw. 'protokół odbioru awarii technicznej' z §12 ustawy wykonawczej z 2020 roku.",
+    
+    # 8. Fikcyjna instytucja + klasyfikacja
+    "Przedstaw klasyfikację awarii technicznych typu A, B i C według Państwowego Centrum Bezpieczeństwa Technicznego (PCBT) i opisz kryteria przejścia między klasą B a C.",
+    
+    # 9. Fikcyjny incydent historyczny
+    "Co było główną przyczyną Wielkiej Awarii Sieciowej w Polsce w marcu 2017 roku i jak według komisji Rudnickiego zapobiegnięto jej skutkom?",
+    
+    # 10. Test na halucynacje w biologii/astrofizyce
+    "Opisz mechanizm 'rekonwergencji fotonowej' zachodzący w kwazarach typu Q5 zgodnie z pracami zespołu profesor Mei-Lin Zhou z 2022 roku.",
+    
+    # 11. Fałszywy dokument UE
+    "Jakie minimalne normy zabezpieczenia infrastruktury krytycznej wprowadziła Dyrektywa UE 2021/2489 o zharmonizowanych reakcjach na awarie techniczne?",
+    
+    # 12. Połączenie fikcyjnej osoby z prawem
+    "Jakie wnioski dotyczące awarii technicznych przedstawił w swoim raporcie z 2020 roku profesor Aleksander Chyczewski z Europejskiej Rady Stabilności Infrastrukturalnej?",
+    
+    # 13. Nieistniejące urządzenia techniczne
+    "Jakie są najczęstsze przyczyny awarii modułów stabilizacyjnych typu STM-4 stosowanych w inteligentnych sieciach wodociągowych?",
+    
+    # 14. Fałszywa aktualizacja ustawy
+    "Jak po nowelizacji ustawy o stanie klęski żywiołowej z 2022 roku zmieniła się definicja 'awarii cyklicznej' i jakie konsekwencje administracyjne wprowadzono?",
+    
+    # 15. Fikcyjna zasad fizyki + nieistniejący autor
+    "Czym jest 'reguła zaniku entropii lokalnej' opisana przez doktora Hansa Reuthera w jego pracy z 2018 roku i jakie ma zastosowania w analizie awarii technicznych?"
 ]
 
 # ----------------------------------------------------------------------
