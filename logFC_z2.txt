@@ -1,0 +1,67 @@
+=== TEST: Z Function Calling ===
+Data/Czas: 2025-11-18 17:53:29
+Pytanie Użytkownika: opisz wydział inżynieria materiałowa i cyfryzacjia przemysłu na politechnika śląska poszukaj aktualnych informacji na stronach
+Sukces w turnusie 1 po próbie: 1
+
+--- Odpowiedź Modelu (1. Wywołanie) ---
+Tekst: [Brak tekstu w odpowiedzi]
+
+Model poprosił o wywołanie funkcji:
+  - FUNKCJA: ZnajdzStrony, ARGUMENTY: {'haslo': 'Wydział Inżynieria Materiałowa i Cyfryzacja Przemysłu Politechnika Śląska'}
+  - WYNIK: Sukces. Zapisano wynik.
+  - ZAWARTOSC WYNIKU (skrót): [
+  {
+    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.polsl.pl%2Frm%2F&rut=1671ece19d44aa1bb183325c7433e8132364674a7537f42185ed9a60d1b2bdf7",
+    "opis": "www.polsl.pl/rm/"
+  },
+  {
+    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.facebook.com%2Fwimpolsl%2F&rut=0e609049eb2b57ef057ec275ab52ed60f58be253c96293e5bc7ed1ee28c284c1",
+    "opis": "www.facebook.com/wimpolsl/"
+  },
+  {
+    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.polsl.pl%2Frm%2Fkierunki_i_programy_ksztalcenia%2F&ru...
+Sukces w turnusie 2 po próbie: 1
+
+--- Odpowiedź Modelu (2. Wywołanie) ---
+Tekst: [Brak tekstu w odpowiedzi]
+
+Model poprosił o wywołanie funkcji:
+  - FUNKCJA: PobierzStrone, ARGUMENTY: {'url': 'https://www.polsl.pl/rm/'}
+  - WYNIK: Sukces. Zapisano wynik.
+  - ZAWARTOSC WYNIKU (skrót): {
+  "html": "<!DOCTYPE html>\r\n<html lang=\"pl-PL\">\r\n<head>\r\n\t<meta charset=\"utf-8\"/>\r\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n\t<title>Politechnika Śląska | Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu</title>\r\n        <link rel=\"stylesheet\" href=\"/wp-content/themes/politechnika-v2/assets/css/bootstrap.min.css\" type=\"text/css\" media=\"screen\" />\r\n        <link rel=\"stylesheet\" href=\"/wp-content/themes/politechnika-v2/asset...
+Sukces w turnusie 3 po próbie: 1
+
+--- Odpowiedź Modelu (3. Wywołanie) ---
+Tekst: [Brak tekstu w odpowiedzi]
+
+Model poprosił o wywołanie funkcji:
+  - FUNKCJA: PobierzStrone, ARGUMENTY: {'url': 'https://www.polsl.pl/rm/kierunki_i_programy_ksztalcenia/'}
+  - WYNIK: Sukces. Zapisano wynik.
+  - ZAWARTOSC WYNIKU (skrót): {
+  "html": "\n<!DOCTYPE html>\r\n<html lang=\"pl-PL\">\r\n<head>\r\n\t<meta charset=\"utf-8\"/>\r\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n\t<title>Politechnika Śląska | Kierunki i programy kształcenia</title>\r\n        <link rel=\"stylesheet\" href=\"/wp-content/themes/politechnika-v2/assets/css/bootstrap.min.css\" type=\"text/css\" media=\"screen\" />\r\n        <link rel=\"stylesheet\" href=\"/wp-content/themes/politechnika-v2/assets/css/flickity.css\" ...
+Sukces w turnusie 4 po próbie: 1
+
+--- Odpowiedź Modelu (4. Wywołanie) ---
+Tekst: [Brak tekstu w odpowiedzi]
+
+Model poprosił o wywołanie funkcji:
+  - FUNKCJA: PobierzStrone, ARGUMENTY: {'url': 'https://www.otouczelnie.pl/wydzial/242/Wydzial-Inzynierii-Materialowej-PS'}
+  - WYNIK: Sukces. Zapisano wynik.
+  - ZAWARTOSC WYNIKU (skrót): {
+  "html": "<!DOCTYPE html>\r\n<!--[if lt IE 7]>      <html class=\"no-js lt-ie9 lt-ie8 lt-ie7 oldie\"> <![endif]-->\r\n<!--[if IE 7]>         <html class=\"no-js lt-ie9 lt-ie8\"> <![endif]-->\r\n<!--[if IE 8]>         <html class=\"no-js lt-ie9\"> <![endif]-->\r\n<!--[if gt IE 8]><!-->\r\n<html class=\"no-js\" lang=\"pl\">\r\n<!--<![endif]-->\r\n\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n            <!-- Google Tag Manager -->\r\n        <script>\r\n            (function(w, d, s, l, i) {\r\...
+Sukces w turnusie 5 po próbie: 1
+
+--- Odpowiedź Modelu (5. Wywołanie) ---
+Tekst: Nie jestem w stanie pobrać pełnej zawartości stron internetowych, co uniemożliwia mi szczegółowe opisanie Wydziału Inżynierii Materiałowej i Cyfryzacji Przemysłu na Politechnice Śląskiej.
+
+Na podstawie dostępnych informacji z wyników wyszukiwania, mogę powiedzieć, że:
+
+*   Pełna nazwa wydziału to **Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu Politechniki Śląskiej**.
+*   Wydział zajmuje się kształceniem w zakresie **inżynierii materiałowej** oraz **cyfryzacji przemysłu**.
+*   Oferuje **kierunki i programy kształcenia** związane z tymi dziedzinami, w tym konkretnie **Inżynierię Materiałową**.
+*   Wydział posiada również swoją stronę na **Facebooku**.
+
+Aby uzyskać bardziej szczegółowe i aktualne informacje, zalecam bezpośrednie odwiedzenie strony internetowej wydziału: [https://www.polsl.pl/rm/](https://www.polsl.pl/rm/) lub ich strony z kierunkami studiów: [https://www.polsl.pl/rm/kierunki_i_programy_ksztalcenia/](https://www.polsl.pl/rm/kierunki_i_programy_ksztalcenia/).
+Model zakończył pracę, generując odpowiedź tekstową.
+================================================
