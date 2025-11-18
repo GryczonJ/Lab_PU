@@ -1,0 +1,48 @@
+=== TEST: Z Function Calling ===
+Data/Czas: 2025-11-18 18:26:40
+Pytanie Użytkownika: opisz wydział inżynieria materiałowa i cyfryzacjia przemysłu na politechnika śląska poszukaj aktualnych informacji na stronach
+Sukces w turnusie 1 po próbie: 1
+
+--- Odpowiedź Modelu (1. Wywołanie) ---
+Tekst: [Brak tekstu w odpowiedzi]
+
+Model poprosił o wywołanie funkcji:
+  - FUNKCJA: ZnajdzStrony, ARGUMENTY: {'haslo': 'Wydział Inżynieria Materiałowa i Cyfryzacja Przemysłu Politechnika Śląska'}
+  - WYNIK: Sukces. Zapisano wynik.
+  - ZAWARTOSC WYNIKU (skrót): [
+  {
+    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.polsl.pl%2Frm%2F&rut=1671ece19d44aa1bb183325c7433e8132364674a7537f42185ed9a60d1b2bdf7",
+    "opis": "www.polsl.pl/rm/"
+  },
+  {
+    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.facebook.com%2Fwimpolsl%2F&rut=0e609049eb2b57ef057ec275ab52ed60f58be253c96293e5bc7ed1ee28c284c1",
+    "opis": "www.facebook.com/wimpolsl/"
+  },
+  {
+    "url": "//duckduckgo.com/l/?uddg=http%3A%2F%2Fmeos.nt24.pl%2Fwydzial%2F&rut=c430adc8ba6efb42422616aaa69d...
+Sukces w turnusie 2 po próbie: 1
+
+--- Odpowiedź Modelu (2. Wywołanie) ---
+Tekst: [Brak tekstu w odpowiedzi]
+
+Model poprosił o wywołanie funkcji:
+  - FUNKCJA: PobierzStrone, ARGUMENTY: {'url': 'https://www.polsl.pl/rm/'}
+  - WYNIK: Sukces. Zapisano wynik.
+  - ZAWARTOSC WYNIKU (skrót): {
+  "text": "Politechnika Śląska | Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu\nPoczta\nA\nA\n+\nA\n++\npl\nen\nKontakt\nKandydat\nStudent\nDoktorant\nPracownik\nAbsolwent\nUczelnia\nWydziały\nWydział Architektury\nWydział Automatyki, Elektroniki i Informatyki\nWydział Budownictwa\nWydział Chemiczny\nWydział Elektryczny\nWydział Górnictwa, Inżynierii Bezpieczeństwa i Automatyki Przemysłowej\nWydział Inżynierii Biomedycznej\nWydział Inżynierii Środowiska i Energetyki\nWydział Inżynieri...
+Sukces w turnusie 3 po próbie: 1
+
+--- Odpowiedź Modelu (3. Wywołanie) ---
+Tekst: Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu na Politechnice Śląskiej jest jednostką oferującą szeroki zakres działalności dydaktycznej i badawczej.
+
+Kluczowe obszary działania Wydziału to:
+
+*   **Struktura:** Posiada własne władze, radę dziekańską, strukturę organizacyjną z danymi kontaktowymi i pracownikami. Współpracuje ze strategicznymi partnerami i Radą Społeczną. Posiada określoną strategię rozwoju oraz bogatą historię.
+*   **Nauka:** Prowadzi działalność naukową w zakresie doktoratów, habilitacji i wniosków profesorskich. Dysponuje pracowniami wydziałowymi oraz "Przestrzenią Innowacji i Kreatywności". Aktywnie angażuje się w projekty badawcze, pozyskiwanie patentów i tworzenie spin-off'ów. Posiada ofertę badawczą oraz organizuje wydarzenia naukowe, takie jak Międzynarodowa Studencka Konferencja Naukowa "Materiały i Technologie XXI Wieku".
+*   **Kształcenie:** Oferuje różnorodne kierunki i programy kształcenia, studia podyplomowe, studia doktoranckie oraz program Erasmus+. Zapewnia dostęp do oprogramowania dla studentów i pracowników, a także dba o System Zapewnienia Jakości Kształcenia.
+*   **Dla studentów:** Studenci mogą liczyć na wsparcie prodziekana ds. kształcenia, Biura Obsługi Studentów, informacje o organizacji roku akademickiego, terminach zjazdów studiów niestacjonarnych, stażach i praktykach. Dostępne są również formularze podań, informacje o opłatach za studia, rozkłady zajęć, platforma zdalnej edukacji oraz programy i plany studiów. Na Wydziale działa Samorząd Studencki i studenckie koła naukowe. Studenci mają dostęp do sieci Wi-Fi eduroam oraz platformy e-Politechnika, która obejmuje e-aktualności, e-aparaturę, e-laboratorium, e-naukę, e-newsletter, e-oprogramowanie, e-patent, e-pracownika, e-technologie i e-wybór studiów.
+*   **Inne:** Wydział angażuje się w zrównoważony rozwój, współpracę z różnymi podmiotami oraz posiada liczne certyfikaty.
+
+Jest to dynamiczny wydział, który koncentruje się na innowacjach w inżynierii materiałowej i cyfryzacji procesów przemysłowych.
+Model zakończył pracę, generując odpowiedź tekstową.
+================================================
