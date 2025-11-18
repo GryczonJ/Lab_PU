@@ -73,58 +73,6 @@ TOOL_SCHEMAS = [
 # ----------------------------------------------------
 # 2. FUNKCJA OBSŁUGUJĄCA LOGIKĘ I LOGOWANIE
 # ----------------------------------------------------
-# do usunięcia duplikatów
-def run_original_model_test(file_name: str, prompt: str):
-    """
-    Uruchamia model Gemini bez Function Calling i zapisuje całą komunikację
-    do pliku logowania.
-    
-    :param file_name: Nazwa pliku logowania (np. logOrg.txt).
-    :param prompt: Pytanie użytkownika.
-    """
-    
-    try:
-        # Klient inicjalizuje się, szukając klucza w zmiennych środowiskowych
-        # Jeśli klucz nie jest ustawiony, konieczne będzie przekazanie go jawnie:
-        # client = genai.Client(api_key="TWÓJ_KLUCZ")
-        client = genai.Client() 
-    except Exception as e:
-        print(f"BŁĄD: Nie można zainicjować klienta Gemini. Upewnij się, że klucz API jest ustawiony. Szczegóły: {e}")
-        return
-
-    # Konfiguracja: ustawienie pustej listy narzędzi
-    config = types.GenerateContentConfig(tools=[])
-    
-    log = []
-    
-    log.append("=== TEST: ORYGINALNY SYSTEM (Dowód braku aktualnej wiedzy) ===")
-    log.append(f"Pytanie Użytkownika: {prompt}")
-    
-    # 1. WYWOŁANIE MODELU
-    try:
-        response = client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=[prompt],
-            config=config,
-        )
-        
-        log.append(f"Odpowiedź Modelu (1. Wywołanie):")
-        
-        # Dodanie informacji o odpowiedzi
-        if safe_text(response):
-            log.append(f"Tekst: {safe_text(response)}")
-        else:
-            log.append("Brak tekstu w odpowiedzi. Możliwy błąd serwera.")
-            
-    except Exception as e:
-        log.append(f"BŁĄD API: Wystąpił błąd podczas komunikacji z API: {e}")
-
-    log.append("================================================\n")
-            
-    # Zapisanie logu do pliku
-    with open(file_name, 'a', encoding='utf-8') as f:
-        f.write('\n'.join(log))
-
 
 def run_model_test(
     file_name: str, 
