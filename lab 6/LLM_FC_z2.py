@@ -82,34 +82,68 @@ def ZnajdzStrony(haslo: str):
 
     return wyniki[:5]
 
+from bs4 import BeautifulSoup
+import requests
 
-def PobierzStrone(url: str):
-    """Pobiera HTML strony pod wskazanym URL.
-
-    Args:
-        url: Pełny adres URL strony do pobrania.
-
-    Returns:
-        Słownik zawierający pole 'html' z zawartością strony.
-    """
-    print(f"DEBUG: Wywołano PobierzStrone dla URL: '{url}'")
+def PobierzStrone(url: str, max_chars: int = 3000):
+    """Pobiera stronę i zwraca oczyszczony tekst do modelu."""
     try:
-        # Ustawienie nagłówka User-Agent
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
         r = requests.get(url, timeout=15, headers=headers)
         r.raise_for_status()
+
+        # Parsowanie HTML
+        soup = BeautifulSoup(r.text, "html.parser")
         
-        # Zwracamy tylko fragment, aby nie zaśmiecać logów
-        content_snippet = r.text[:2000] + "..."
-        return {"html": content_snippet}
+        # Usuwamy skrypty i style
+        for script in soup(["script", "style"]):
+            script.decompose()
         
+        # Pobieramy widoczny tekst
+        text = soup.get_text(separator="\n")
+        text = "\n".join([line.strip() for line in text.splitlines() if line.strip()])
+        
+        # Ograniczamy długość
+        if len(text) > max_chars:
+            text = text[:max_chars] + "..."
+        
+        return {"text": text}
+
     except requests.exceptions.RequestException as e:
-        print(f"BŁĄD POBIERANIA STRONY: {e}")
-        return {"html": f"Błąd podczas pobierania strony: {e}"}
+        return {"text": f"Błąd podczas pobierania strony: {e}"}
     except Exception as e:
-        return {"html": f"Nieznany błąd: {e}"}
+        return {"text": f"Nieznany błąd: {e}"}
+
+
+# def PobierzStrone(url: str):
+#     """Pobiera HTML strony pod wskazanym URL.
+
+#     Args:
+#         url: Pełny adres URL strony do pobrania.
+
+#     Returns:
+#         Słownik zawierający pole 'html' z zawartością strony.
+#     """
+#     print(f"DEBUG: Wywołano PobierzStrone dla URL: '{url}'")
+#     try:
+#         # Ustawienie nagłówka User-Agent
+#         headers = {
+#             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+#         }
+#         r = requests.get(url, timeout=15, headers=headers)
+#         r.raise_for_status()
+        
+#         # Zwracamy tylko fragment, aby nie zaśmiecać logów
+#         content_snippet = r.text[:2000] + "..."
+#         return {"html": content_snippet}
+        
+#     except requests.exceptions.RequestException as e:
+#         print(f"BŁĄD POBIERANIA STRONY: {e}")
+#         return {"html": f"Błąd podczas pobierania strony: {e}"}
+#     except Exception as e:
+#         return {"html": f"Nieznany błąd: {e}"}
 
 
 # Lista dostępnych funkcji dla Function Calling
