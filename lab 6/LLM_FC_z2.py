@@ -82,8 +82,6 @@ def ZnajdzStrony(haslo: str):
 
     return wyniki[:5]
 
-from bs4 import BeautifulSoup
-import requests
 
 def PobierzStrone(url: str, max_chars: int = 3000):
     """Pobiera stronę i zwraca oczyszczony tekst do modelu."""
