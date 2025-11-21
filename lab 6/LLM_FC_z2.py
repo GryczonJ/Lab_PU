@@ -63,10 +63,14 @@ def ZnajdzStrony(haslo: str):
 
     wyniki = []
     # Selektor CSS dla wyników wyszukiwania DuckDuckGo HTML
+     # Iteracja po wszystkich wynikach
     for a in soup.select("a.result__url"):
+        # Pobieramy link i dodajemy https: jeśli zaczyna się od //
         link = a.get("href", "")
+        link = "https:" + link if link.startswith("//") else link
+
         # Próba znalezienia opisu w sąsiednim elemencie, jeśli dostępny
-        opis_element = a.find_next_sibling(attrs={"class": "result__snippet"})
+        opis_element = a.find_next("div", attrs={"data-result": "snippet"})
         opis = opis_element.get_text(strip=True) if opis_element else a.get_text(strip=True)
 
         if link:
@@ -83,8 +87,17 @@ def ZnajdzStrony(haslo: str):
     return wyniki[:5]
 
 
-def PobierzStrone(url: str, max_chars: int = 3000):
+def PobierzStrone(url: str, max_chars: int = 8000):
     """Pobiera stronę i zwraca oczyszczony tekst do modelu."""
+    # Jeśli URL to link DuckDuckGo z przekierowaniem, wyciągamy docelowy URL
+    if "/l/?" in url and "uddg=" in url:
+        start = url.find("uddg=") + len("uddg=")
+        end = url.find("&", start)
+        if end == -1:
+            end = len(url)
+        url = url[start:end]
+        url = url.replace("%3A", ":").replace("%2F", "/")  # dekodowanie podstawowe
+
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -345,7 +358,7 @@ def PrzeprowadzTestyGemini():
     if os.path.exists("logFC_z2.txt"): os.remove("logFC_z2.txt")
     
     # Prompt wymagający wieloetapowej interakcji (szukanie -> pobieranie -> podsumowanie)
-    user_prompt ="opisz wydział inżynieria materiałowa i cyfryzacjia przemysłu na politechnika śląska poszukaj aktualnych informacji na stronach" 
+    user_prompt ="Czy polityk polski polityk poruszył temat premiery gta 6 w sejmie?" 
     print(f"Użyty prompt: {user_prompt}")
     
     # --- 1. TEST SYSTEMU ORYGINALNEGO ---
@@ -389,8 +402,9 @@ def Testuj():
         print(f"Pobieram: {w['url']}")
         html = PobierzStrone(w["url"])
         print("Fragment HTML:")
-        print(html["html"][:500])  # tylko pierwsze 500 znaków
+        print(html["text"][:500])  # tylko pierwsze 500 znaków
         print("\n---\n")
 
 if __name__ == "__main__":
+    #Testuj()
     PrzeprowadzTestyGemini()
