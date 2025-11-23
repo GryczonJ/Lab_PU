@@ -11,7 +11,7 @@ from google.genai import types
 # ----------------------------------------------------
 # W celach demonstracyjnych, klucz jest zdefiniowany jako stała.
 # W środowisku produkcyjnym zaleca się użycie os.environ['GEMINI_API_KEY']
-API_KEY = "AIzaSyDol30cA_ECLlc3bc6vmu1XSV1ixkJ23xs" 
+API_KEY = "AIzaSyBbQLOVNf55Ow_qIyrH4RWrxIoumIudzhs" 
 
 # ----------------------------------------------------
 # 1. DEFINICJE NARZĘDZI (FUNCTION CALLING)

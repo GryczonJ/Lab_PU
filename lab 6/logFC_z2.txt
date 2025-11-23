@@ -1,48 +1,38 @@
 === TEST: Z Function Calling ===
-Data/Czas: 2025-11-18 18:26:40
-Pytanie Użytkownika: opisz wydział inżynieria materiałowa i cyfryzacjia przemysłu na politechnika śląska poszukaj aktualnych informacji na stronach
+Data/Czas: 2025-11-23 21:55:53
+Pytanie Użytkownika: Czy polityk polski polityk poruszył temat premiery gta 6 w sejmie?
 Sukces w turnusie 1 po próbie: 1
 
 --- Odpowiedź Modelu (1. Wywołanie) ---
 Tekst: [Brak tekstu w odpowiedzi]
 
 Model poprosił o wywołanie funkcji:
-  - FUNKCJA: ZnajdzStrony, ARGUMENTY: {'haslo': 'Wydział Inżynieria Materiałowa i Cyfryzacja Przemysłu Politechnika Śląska'}
+  - FUNKCJA: ZnajdzStrony, ARGUMENTY: {'haslo': 'polityk sejm gta 6 premiera'}
   - WYNIK: Sukces. Zapisano wynik.
   - ZAWARTOSC WYNIKU (skrót): [
   {
-    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.polsl.pl%2Frm%2F&rut=1671ece19d44aa1bb183325c7433e8132364674a7537f42185ed9a60d1b2bdf7",
-    "opis": "www.polsl.pl/rm/"
+    "url": "https://duckduckgo.com/l/?uddg=https%3A%2F%2Fprzegladsportowy.onet.pl%2Fesportmania%2Fgaming%2Fnie%2Ddo%2Dwiary%2Dposel%2Dkonfederacji%2Dskomentowal%2Dopoznienie%2Dgta%2Dvi%2Dw%2Dpolskim%2Dsejmie%2F99evejk&rut=132157f4feafc3cdbc440f3971500d4bccec82f851935aab17891001ec7e116b",
+    "opis": "przegladsportowy.onet.pl/esportmania/gaming/nie-do-wiary-posel-konfederacji-skomentowal-opoznienie-gta-vi-w-polskim-sejmie/99evejk"
   },
   {
-    "url": "//duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.facebook.com%2Fwimpolsl%2F&rut=0e609049eb2b57ef057ec275ab52ed60f58be253c96293e5bc7ed1ee28c284c1",
-    "opis": "www.facebook.com/wimpolsl/"
+    "url": "https://duckduckgo.com/l/?uddg=https%3A%2F%2Fspidersweb.pl%2F2025%2F11%2Fgta%2D6%2Dsejm%2Dtumanowicz%2Dkonfederacja.html&rut=3332929752ca251f12ded5bb1ddff2307e1faf30591b6b106d1c7a09833456b6",
+    "opis": "spidersweb.pl/2025/11/gta-6-sejm-tumanowicz-konfederacja.html"
   },
   {
-    "url": "//duckduckgo.com/l/?uddg=http%3A%2F%2Fmeos.nt24.pl%2Fwydzial%2F&rut=c430adc8ba6efb42422616aaa69d...
+    "url": "https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpl.ign.com%2Fgrand%2Dtheft%2Dauto%2D6%2D1%2F68204%2Fnews%2Fgta%2D6%2Dwywoluje%2Dskandal%2Dw%2Dpolskim%2Dsejmie%2Dposel%2Dgrzmi%2Dz%2Dmownicy%2Dludzie%2Dpowinni%2Dwyjsc%2Dna%2Dulice&rut=13fea3632910e4809cc3...
 Sukces w turnusie 2 po próbie: 1
 
 --- Odpowiedź Modelu (2. Wywołanie) ---
 Tekst: [Brak tekstu w odpowiedzi]
 
 Model poprosił o wywołanie funkcji:
-  - FUNKCJA: PobierzStrone, ARGUMENTY: {'url': 'https://www.polsl.pl/rm/'}
+  - FUNKCJA: PobierzStrone, ARGUMENTY: {'url': 'https://przegladsportowy.onet.pl/esportmania/gaming/nie-do-wiary-posel-konfederacji-skomentowal-opoznienie-gta-vi-w-polskim-sejmie/99evejk'}
   - WYNIK: Sukces. Zapisano wynik.
   - ZAWARTOSC WYNIKU (skrót): {
-  "text": "Politechnika Śląska | Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu\nPoczta\nA\nA\n+\nA\n++\npl\nen\nKontakt\nKandydat\nStudent\nDoktorant\nPracownik\nAbsolwent\nUczelnia\nWydziały\nWydział Architektury\nWydział Automatyki, Elektroniki i Informatyki\nWydział Budownictwa\nWydział Chemiczny\nWydział Elektryczny\nWydział Górnictwa, Inżynierii Bezpieczeństwa i Automatyki Przemysłowej\nWydział Inżynierii Biomedycznej\nWydział Inżynierii Środowiska i Energetyki\nWydział Inżynieri...
+  "text": "Nie do wiary! Poseł Konfederacji skomentował opóźnienie GTA VI w polskim sejmie - Przegląd Sportowy Onet\nPrzejdź na Onet\nSzukaj\nE-mail\nPlebiscyt \"PS\"\nPiłka nożna\nTenis\nŻużel\nSiatkówka\nLekkoatletyka\nPremium\nPromocja\nBukmacherzy\nOfsajd\nWięcej\nAlpinizm\nBadminton\nBaseball\nBiathlon\nBieganie\nBiegi narciarskie\nBoks\nDrift Masters\nEsport\nFelietony\nFitness i porady\nFormuła 1\nFutbol Amerykański\nFutsal\nGimnastyka\nGolf\nHokej\nHokej na trawie\nIgrzyska\nInne sporty\nJeździectwo\nJudo\nJunior\nKajakarstwo\nKolarstwo\nKoszykówka\nLiga Żeglarska\nŁucznictwo\nŁyżwiarstwo\nMisja Futbol\nMisja Sport\nMMA\nMotorowe\nParaolimpiada\nPięciobój nowoczesny\nPiłka ręczna\nPływanie\nPodcasty\nPodnoszenie ciężarów\nPS Historia\nRugby\nSklep PS\nSkoki narciarskie\nSnooker\nSport akademicki\nSporty adaptowane\nSporty lotnicze\nSporty motorowodne\nSporty walki\nSquash\nStrzelectwo\nSzachy\nSzermierka\nTenis stołowy\nTour de Pologne\nTriathlon\nWioślarstwo\nWspinaczka spor...
 Sukces w turnusie 3 po próbie: 1
 
 --- Odpowiedź Modelu (3. Wywołanie) ---
-Tekst: Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu na Politechnice Śląskiej jest jednostką oferującą szeroki zakres działalności dydaktycznej i badawczej.
-
-Kluczowe obszary działania Wydziału to:
-
-*   **Struktura:** Posiada własne władze, radę dziekańską, strukturę organizacyjną z danymi kontaktowymi i pracownikami. Współpracuje ze strategicznymi partnerami i Radą Społeczną. Posiada określoną strategię rozwoju oraz bogatą historię.
-*   **Nauka:** Prowadzi działalność naukową w zakresie doktoratów, habilitacji i wniosków profesorskich. Dysponuje pracowniami wydziałowymi oraz "Przestrzenią Innowacji i Kreatywności". Aktywnie angażuje się w projekty badawcze, pozyskiwanie patentów i tworzenie spin-off'ów. Posiada ofertę badawczą oraz organizuje wydarzenia naukowe, takie jak Międzynarodowa Studencka Konferencja Naukowa "Materiały i Technologie XXI Wieku".
-*   **Kształcenie:** Oferuje różnorodne kierunki i programy kształcenia, studia podyplomowe, studia doktoranckie oraz program Erasmus+. Zapewnia dostęp do oprogramowania dla studentów i pracowników, a także dba o System Zapewnienia Jakości Kształcenia.
-*   **Dla studentów:** Studenci mogą liczyć na wsparcie prodziekana ds. kształcenia, Biura Obsługi Studentów, informacje o organizacji roku akademickiego, terminach zjazdów studiów niestacjonarnych, stażach i praktykach. Dostępne są również formularze podań, informacje o opłatach za studia, rozkłady zajęć, platforma zdalnej edukacji oraz programy i plany studiów. Na Wydziale działa Samorząd Studencki i studenckie koła naukowe. Studenci mają dostęp do sieci Wi-Fi eduroam oraz platformy e-Politechnika, która obejmuje e-aktualności, e-aparaturę, e-laboratorium, e-naukę, e-newsletter, e-oprogramowanie, e-patent, e-pracownika, e-technologie i e-wybór studiów.
-*   **Inne:** Wydział angażuje się w zrównoważony rozwój, współpracę z różnymi podmiotami oraz posiada liczne certyfikaty.
-
-Jest to dynamiczny wydział, który koncentruje się na innowacjach w inżynierii materiałowej i cyfryzacji procesów przemysłowych.
+Tekst: Tak, polski polityk, Witold Tumanowicz z Konfederacji, poruszył temat premiery GTA VI w Sejmie. Skomentował opóźnienie wydania gry, nazywając to "ogromnym skandalem" i żartobliwie sugerując, że ludzie powinni wyjść na ulice w proteście. Jego wypowiedź szybko obiegła media na całym świecie.
 Model zakończył pracę, generując odpowiedź tekstową.
 ================================================

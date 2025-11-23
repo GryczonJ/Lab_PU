@@ -9,7 +9,7 @@ from google.genai import types
 from bs4 import BeautifulSoup
 
 # Zmienna symulująca klucz API
-API_KEY = "AIzaSyDol30cA_ECLlc3bc6vmu1XSV1ixkJ23xs" 
+API_KEY = "AIzaSyBbQLOVNf55Ow_qIyrH4RWrxIoumIudzhs" 
 
 # STAŁE DLA MECHANIZMU PONAWIANIA Z WYKŁADNICZYM OPÓŹNIENIEM
 MAX_RETRIES = 5       
@@ -296,7 +296,7 @@ def run_model_test(
                     result = function_to_call(**func_args)
                     log.append(f"  - WYNIK: Sukces. Zapisano wynik.")
                     result_preview = json.dumps(result, ensure_ascii=False, indent=2)
-                    log.append(f"  - ZAWARTOSC WYNIKU (skrót): {result_preview[:500]}...")
+                    log.append(f"  - ZAWARTOSC WYNIKU (skrót): {result_preview[:1000]}...")
 
                     # Sprawdzenie, czy ZnajdzStrony zwróciło pustą listę
                     if func_name == "ZnajdzStrony" and isinstance(result, list) and not result:
@@ -402,7 +402,7 @@ def Testuj():
         print(f"Pobieram: {w['url']}")
         html = PobierzStrone(w["url"])
         print("Fragment HTML:")
-        print(html["text"][:500])  # tylko pierwsze 500 znaków
+        print(html["text"][:1000])  # tylko pierwsze 1000 znaków
         print("\n---\n")
 
 if __name__ == "__main__":

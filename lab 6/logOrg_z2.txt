@@ -1,76 +1,10 @@
 === TEST: ORYGINALNY SYSTEM ===
-Data/Czas: 2025-11-18 18:26:19
-Pytanie Użytkownika: opisz wydział inżynieria materiałowa i cyfryzacjia przemysłu na politechnika śląska poszukaj aktualnych informacji na stronach
+Data/Czas: 2025-11-23 21:55:45
+Pytanie Użytkownika: Czy polityk polski polityk poruszył temat premiery gta 6 w sejmie?
 Sukces w turnusie 1 po próbie: 1
 
 --- Odpowiedź Modelu (1. Wywołanie) ---
-Tekst: Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu (WIMiCP) na Politechnice Śląskiej w Gliwicach to jeden z kluczowych i bardzo dynamicznie rozwijających się wydziałów uczelni, łączący tradycyjne obszary inżynierii materiałowej z najnowszymi trendami cyfryzacji i Przemysłu 4.0.
+Tekst: Nie ma żadnych publicznie dostępnych, wiarygodnych informacji ani doniesień medialnych, żeby polski polityk poruszył temat premiery Grand Theft Auto VI na forum Sejmu.
 
-**Misja i Profil Wydziału:**
-
-Misją WIMiCP jest kształcenie wysoko wykwalifikowanych specjalistów dla nowoczesnego przemysłu, zdolnych do projektowania, wytwarzania i analizowania zaawansowanych materiałów, a także do wdrażania i zarządzania cyfrowymi technologiami w procesach produkcyjnych i biznesowych. Wydział stawia na interdyscyplinarne podejście, integrując wiedzę z zakresu inżynierii materiałowej, informatyki, automatyki, robotyki i zarządzania.
-
-**Obszary Kształcenia i Badań:**
-
-Wydział koncentruje się na dwóch głównych, wzajemnie przenikających się filarach:
-
-1.  **Inżynieria Materiałowa:**
-    *   Badania i rozwój nowych, zaawansowanych materiałów (funkcjonalnych, inteligentnych, biomateriałów, kompozytów).
-    *   Projektowanie i optymalizacja procesów wytwarzania i obróbki materiałów.
-    *   Charakterystyka właściwości fizycznych, chemicznych i mechanicznych materiałów z wykorzystaniem nowoczesnych technik badawczych.
-    *   Nanotechnologia i inżynieria powierzchni.
-    *   Materiały dla energetyki, medycyny, lotnictwa i motoryzacji.
-
-2.  **Cyfryzacja Przemysłu:**
-    *   **Przemysł 4.0 i Inteligentne Fabryki:** Automatyzacja, robotyka, sztuczna inteligencja (AI), uczenie maszynowe (ML) w procesach produkcyjnych.
-    *   **Big Data i Analityka Danych:** Gromadzenie, przetwarzanie i analiza dużych zbiorów danych przemysłowych w celu optymalizacji procesów i prognozowania.
-    *   **Internet Rzeczy (IoT) dla Przemysłu (IIoT):** Systemy monitorowania i sterowania oparte na sieciach czujników.
-    *   **Cyfrowe Bliźniaki (Digital Twins):** Tworzenie wirtualnych modeli fizycznych obiektów i procesów.
-    *   **Cyberbezpieczeństwo w Przemyśle:** Ochrona systemów IT/OT przed zagrożeniami.
-    *   **Zarządzanie i Inżynieria Produkcji:** Optymalizacja procesów, logistyka, planowanie produkcji w środowisku cyfrowym.
-    *   **Informatyka Przemysłowa:** Projektowanie i wdrażanie systemów informatycznych wspierających produkcję i zarządzanie.
-
-**Kierunki Studiów (aktualne informacje z roku akademickiego 2023/2024 i planowane na 2024/2025):**
-
-WIMiCP oferuje szeroki wachlarz kierunków studiów na poziomie inżynierskim (I stopnia) i magisterskim (II stopnia), dostosowanych do potrzeb rynku pracy:
-
-**Studia I Stopnia (Inżynierskie):**
-
-*   **Inżynieria Biomedyczna:** Łączy inżynierię z medycyną, skupiając się na materiałach medycznych, biomechanice, aparaturze diagnostycznej.
-*   **Inżynieria Materiałowa:** Klasyczny kierunek o nowoczesnym wydaniu, kształcący specjalistów od projektowania, wytwarzania i badania materiałów.
-*   **Informatyka Przemysłowa:** Kierunek dla przyszłych inżynierów zajmujących się systemami IT w przemyśle, automatyzacją, robotyką i analizą danych.
-*   **Metalurgia:** Mimo tradycyjnej nazwy, kierunek ten jest mocno osadzony w nowoczesnych technologiach wytwarzania i obróbki metali, w tym z wykorzystaniem cyfryzacji.
-*   **Zarządzanie i Inżynieria Produkcji:** Przygotowuje do zarządzania procesami produkcyjnymi w kontekście Przemysłu 4.0, z naciskiem na optymalizację, logistykę i cyfrowe narzędzia zarządzania.
-
-**Studia II Stopnia (Magisterskie):**
-
-Kontynuacja studiów I stopnia, z możliwością specjalizacji w konkretnych obszarach, np. zaawansowanych materiałach, sztucznej inteligencji w przemyśle, zarządzaniu cyfrową produkcją.
-
-**Szkoła Doktorska:**
-
-Wydział aktywnie uczestniczy w kształceniu doktorantów w ramach Szkoły Doktorskiej Politechniki Śląskiej, oferując możliwość prowadzenia badań naukowych w wiodących dziedzinach inżynierii materiałowej i cyfryzacji.
-
-**Infrastruktura i Współpraca:**
-
-WIMiCP dysponuje nowoczesną infrastrukturą laboratoryjną, wyposażoną w zaawansowane urządzenia do badań materiałowych (mikroskopy elektronowe, dyfraktometry, spektrometry) oraz stanowiska do prototypowania i testowania rozwiązań cyfrowych (roboty, systemy automatyki, serwerownie do analizy Big Data).
-
-Wydział aktywnie współpracuje z przemysłem, realizując projekty badawczo-rozwojowe, oferując ekspertyzy i szkolenia. Dzięki temu studenci mają dostęp do aktualnej wiedzy i możliwość odbycia praktyk oraz staży w wiodących firmach technologicznych i produkcyjnych.
-
-**Perspektywy Zawodowe Absolwentów:**
-
-Absolwenci WIMiCP są bardzo poszukiwani na rynku pracy. Mogą znaleźć zatrudnienie jako:
-
-*   Inżynierowie materiałowi (w działach R&D, kontroli jakości, produkcji)
-*   Inżynierowie automatyki i robotyki
-*   Programiści systemów przemysłowych
-*   Analitycy danych przemysłowych
-*   Specjaliści ds. cyberbezpieczeństwa w przemyśle
-*   Kierownicy produkcji, specjaliści ds. logistyki i optymalizacji procesów
-*   Specjaliści w sektorze biomedycznym i medycznym
-
-**Podsumowanie:**
-
-Wydział Inżynierii Materiałowej i Cyfryzacji Przemysłu Politechniki Śląskiej to nowoczesna jednostka dydaktyczno-badawcza, która skutecznie łączy głęboką wiedzę o materiałach z innowacyjnymi technologiami cyfrowymi. Jest to idealne miejsce dla osób, które chcą aktywnie uczestniczyć w transformacji przemysłu w kierunku Przemysłu 4.0 i rozwijać zaawansowane technologicznie rozwiązania przyszłości.
-
-Aby uzyskać najbardziej aktualne i szczegółowe informacje (np. programy studiów, zasady rekrutacji, najnowsze osiągnięcia), zawsze warto odwiedzić oficjalną stronę wydziału: **wimicp.polsl.pl** oraz stronę rekrutacyjną Politechniki Śląskiej.
+Byłoby to bardzo nietypowe dla debaty parlamentarnej, która skupia się na kwestiach ustawodawczych, polityce państwowej i sprawach narodowych. Gdyby taka sytuacja miała miejsce, prawdopodobnie stałaby się szeroko komentowanym wydarzeniem medialnym, co nie miało miejsca.
 ================================================
