@@ -1,0 +1,119 @@
+--- Początek sesji: 2025-11-30 21:16:45 ---
+[2025-11-30 21:16:45] [SYSTEM]: Host MCP uruchomiony. Klient łączy się z: http://127.0.0.1:8000/mcp
+[2025-11-30 21:16:46] [SUKCES]: Odkryto narzędzia: ['losowy_cytat', 'analizuj_tekst']
+[2025-11-30 21:21:59] [USER_PROMPT]: & D:/konda/envs/lab-pu/python.exe d:/konda/envs/lab-pu/Lab_PU/lab7/serwerMCP_HTTP.py
+[2025-11-30 21:22:01] [BŁĄD_REQUEST]: Błąd komunikacji z Gemini API: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=AIzaSyAgblq5eaIFTPyevcT_HMqEFM3VJjoi-a8. Szczegóły: {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "tools[1].function_declarations[0].parameters.properties[0].value",
+            "description": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field."
+          }
+        ]
+      }
+    ]
+  }
+}
+
+[2025-11-30 21:22:02] [BŁĄD_REQUEST]: Błąd komunikacji z Gemini API: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=AIzaSyAgblq5eaIFTPyevcT_HMqEFM3VJjoi-a8. Szczegóły: {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "tools[1].function_declarations[0].parameters.properties[0].value",
+            "description": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field."
+          }
+        ]
+      }
+    ]
+  }
+}
+
+[2025-11-30 21:22:02] [BŁĄD_REQUEST]: Błąd komunikacji z Gemini API: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=AIzaSyAgblq5eaIFTPyevcT_HMqEFM3VJjoi-a8. Szczegóły: {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "tools[1].function_declarations[0].parameters.properties[0].value",
+            "description": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field."
+          }
+        ]
+      }
+    ]
+  }
+}
+
+[2025-11-30 21:23:58] [USER_PROMPT]: & D:/konda/envs/lab-pu/python.exe d:/konda/envs/lab-pu/Lab_PU/lab7/serwerMCP_HTTP.py
+[2025-11-30 21:23:58] [BŁĄD_REQUEST]: Błąd komunikacji z Gemini API: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=AIzaSyAgblq5eaIFTPyevcT_HMqEFM3VJjoi-a8. Szczegóły: {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "tools[1].function_declarations[0].parameters.properties[0].value",
+            "description": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field."
+          }
+        ]
+      }
+    ]
+  }
+}
+
+[2025-11-30 21:23:59] [BŁĄD_REQUEST]: Błąd komunikacji z Gemini API: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=AIzaSyAgblq5eaIFTPyevcT_HMqEFM3VJjoi-a8. Szczegóły: {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "tools[1].function_declarations[0].parameters.properties[0].value",
+            "description": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field."
+          }
+        ]
+      }
+    ]
+  }
+}
+
+[2025-11-30 21:24:00] [BŁĄD_REQUEST]: Błąd komunikacji z Gemini API: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=AIzaSyAgblq5eaIFTPyevcT_HMqEFM3VJjoi-a8. Szczegóły: {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.BadRequest",
+        "fieldViolations": [
+          {
+            "field": "tools[1].function_declarations[0].parameters.properties[0].value",
+            "description": "Invalid JSON payload received. Unknown name \"additionalProperties\" at 'tools[1].function_declarations[0].parameters.properties[0].value': Cannot find field."
+          }
+        ]
+      }
+    ]
+  }
+}
+
