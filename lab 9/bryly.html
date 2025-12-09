@@ -226,10 +226,10 @@
             let html = "<table><tr><th>Wynik</th><th>Wartość</th></tr>";
 
             if (wynikiDoWyliczenia.includes("V"))
-                html += `<tr><td>Objętość</td><td>${V.toFixed(2)}</td></tr>`;
+                html += `<tr><td>Objętość</td><td>${V.toFixed(2)} cm<sup>3</sup></td></tr>`;
 
             if (wynikiDoWyliczenia.includes("P"))
-                html += `<tr><td>Pole powierzchni</td><td>${P.toFixed(2)}</td></tr>`;
+                html += `<tr><td>Pole powierzchni</td><td>${P.toFixed(2)} cm<sup>2</sup></td></tr> `;
 
             if (wynikiDoWyliczenia.includes("M"))
                 html += `<tr><td>Masa</td><td>${masa.toFixed(2)} kg</td></tr>`;
@@ -254,7 +254,7 @@
 <body>
     <h2>Obliczenia brył</h2>
     <form>
-        <label>Promień:</label>
+        <label>Promień (cm<sup>2</sup>):</label>
         <input type="text" id="promien" value="1"><br>
 
         <label>Bryła:</label>
@@ -265,7 +265,7 @@
         </select>
 
         <div id="poleH" style="display:none;">
-            <label>Wysokość:</label>
+            <label>Wysokość (cm<sup>2</sup>):</label>
             <input type="text" id="wysokosc" value="1"><br>
         </div>
 
