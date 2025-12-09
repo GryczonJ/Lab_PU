@@ -7,6 +7,8 @@ from models import Movie
 from schemas import MovieRead, MovieCreate, MovieUpdate
 from database import get_db
 
+import logging
+logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Wypożyczalnia Filmów API",
@@ -62,8 +64,13 @@ def update_movie(movie_id: int, movie: MovieUpdate, db: Session = Depends(get_db
     return db_movie
 
 # --- DELETE ---
+
 @app.delete("/filmy/{movie_id}", status_code=status.HTTP_204_NO_CONTENT, tags=["Filmy"])
 def delete_movie(movie_id: int, db: Session = Depends(get_db)):
     db_movie = db.query(Movie).filter(Movie.id == movie_id).first()
     if not db_movie:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Film nie został znaleziony")
+    db.delete(db_movie)
+    db.commit()
+    return  {}
+

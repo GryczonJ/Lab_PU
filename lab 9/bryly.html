@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function Oblicz(){
+            let r = Number(document.getElementById('promien').value);
+            let V = 4/3 * Math.PI * r**3;
+            document.getElementById('wynik').innerHTML = `Wynik wynosi <i>${V.toFixed(2)}</i>`;
+        }
+    </script>
+</head>
+<body>
+    <form>
+         <label for="promien">Promień:</label>
+        <input type="text" id="promien" value="0"><br/>
+        
+        <button type="button" onclick="Oblicz()">Oblicz</button>
+
+        <span id="wynik" style="background-color: aqua;"></span>
+    </form>
+</body>
+</html>

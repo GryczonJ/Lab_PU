@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Bitcoin Cena</title>
+
+<style>
+    #btc {
+        background-color: yellow;
+        padding: 5px 10px;
+        font-weight: bold;
+    }
+    #czas {
+        background-color: lightgreen;
+        padding: 5px 10px;
+        margin-top: 10px;
+        display: inline-block;
+    }
+</style>
+
+<script>
+let timer;
+
+function startClock() {
+    timer = setInterval(() => {
+        const teraz = new Date();
+        document.getElementById("czas").textContent =
+            teraz.toLocaleTimeString("pl-PL", { hour12: false });
+    }, 1000);
+}
+
+async function pobierzBTC() {
+    try {
+        // API Coingecko - działa bez CORS!
+        const response = await fetch(
+            "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd"
+        );
+
+        const dane = await response.json();
+        const cenaUSD = dane.bitcoin.usd;
+
+        document.getElementById("btc").textContent = "BTC: " + cenaUSD + " USD";
+    } catch (err) {
+        document.getElementById("btc").textContent = "Błąd pobierania danych";
+    }
+}
+
+window.onload = startClock;
+</script>
+
+</head>
+<body>
+
+<h2>Aktualna cena Bitcoin</h2>
+
+<button onclick="pobierzBTC()">Pobierz</button>
+
+<br><br>
+
+<span id="btc">---</span>
+<br><br>
+<span id="czas"></span>
+
+</body>
+</html>
