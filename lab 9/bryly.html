@@ -3,23 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript">
-        function Oblicz(){
-            let r = Number(document.getElementById('promien').value);
-            let V = 4/3 * Math.PI * r**3;
-            document.getElementById('wynik').innerHTML = `Wynik wynosi <i>${V.toFixed(2)}</i>`;
+    <meta author="Jan Gryczon">
+     <title>Kalkulator brył</title>
+    <link rel="icon" type="image/png" href="https://uxwing.com/icons/256/calculator.png">
+
+
+    <!-- Autor -->
+    <meta name="author" content="Jan Gryczon">
+    <!-- Opis strony (SEO) -->
+    <meta name="description" content="Kalkulator brył – oblicz objętość, pole powierzchni i masę brył geometrycznych.">
+    <!-- Słowa kluczowe (opcjonalne, Google prawie ich nie używa) -->
+    <meta name="keywords" content="kalkulator brył, geometria, objętość, pole powierzchni">
+    <!-- Ustawienie motywu dla przeglądarek mobilnych -->
+    <meta name="theme-color" content="#121219">
+    <!-- Blokada trybu telefonicznego (żeby tekst z numerami nie zmieniał się w linki) -->
+    <meta name="format-detection" content="telephone=no">
+
+
+    <!-- Kompatybilność z IE (raczej już niepotrzebne, ale bywa dodawane) -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Informacja o języku -->
+    <meta http-equiv="content-language" content="pl">
+    <!-- Cache — możesz zostawić lub usunąć -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+
+    <!-- Metadane dla Twittera -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kalkulator brył">
+    <meta name="twitter:description" content="Nowoczesny kalkulator brył geometrycznych.">
+    <meta name="twitter:image" content="link-do-obrazka.png">
+
+    <!-- Metadane dla social media -->
+    <meta property="og:title" content="Kalkulator brył">
+    <meta property="og:description" content="Oblicz objętość, pole powierzchni i masę brył.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="link-do-obrazka.png">
+    <meta property="og:url" content="https://twoja-strona.pl">
+   
+    <style>
+        *{
+            margin:0; padding:0; box-sizing:border-box;
+            font-family: "Segoe UI", sans-serif;
         }
+
+        body{
+            background:#121219;
+            color:#eee;
+            text-align:center;
+            padding:20px;
+        }
+
+        /* usunięto translateY — nie będzie skakania */
+        @keyframes fadeIn {
+            from{opacity:0;}
+            to{opacity:1;}
+        }
+
+        /* FORMULARZ */
+        form{
+            width:330px;
+            margin:30px auto 0; /* odstęp, żeby nie nachodził */
+            padding:25px;
+            border-radius:18px;
+            background:rgba(255,255,255,0.05);
+            backdrop-filter:blur(10px);
+            box-shadow:0 0 20px rgba(0,150,255,0.2);
+            transition:.4s;
+            animation: fadeInForm .6s ease-out;
+        }
+
+        /* zmieniona animacja — BEZ scale i BEZ przesuwania! */
+        @keyframes fadeInForm {
+            0%{opacity:0;}
+            100%{opacity:1;}
+        }
+
+        form:hover{
+            box-shadow:0 0 30px rgba(0,150,255,0.35);
+            transform:translateY(-5px);
+        }
+
+        label{
+            display:block;
+            margin-top:12px;
+            text-align:left;
+        }
+
+        /* INPUTY */
+        input[type="number"], select{
+            width:100%;
+            padding:10px;
+            margin-top:6px;
+            border:none;
+            border-radius:10px;
+            background:#1e1e26;
+            color:white;
+            transition:.25s;
+        }
+
+        input:focus, select:focus{
+            outline:none;
+            box-shadow:0 0 10px #3498db;
+        }
+
+        /* PRZYCISK */
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:18px;
+            border:none;
+            border-radius:10px;
+            background:linear-gradient(135deg,#3498db,#6ac4ff);
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:.25s;
+            box-shadow:0 0 15px rgba(52,152,219,0.4);
+        }
+
+        button:hover{
+            transform:translateY(-3px) scale(1.03);
+            box-shadow:0 0 25px rgba(90,200,255,0.7);
+        }
+
+        /* TABELA */
+        table{
+            margin:25px auto;
+            width:85%;
+            border-collapse:collapse;
+            background:#1b1b22;
+            border-radius:12px;
+            overflow:hidden;
+        }
+
+        th, td{
+            padding:10px;
+            border-bottom:1px solid #333;
+        }
+
+        tr:hover td{
+            background:#262630;
+            transition:.2s;
+        }
+        select:hover {
+        background: #2a2a36;          /* jaśniejszy kolor tła */
+        box-shadow: 0 0 8px #3498db;  /* delikatny glow */
+        transform: scale(1.02);       /* lekko powiększa przy hover */
+    }
+    h2 {
+        display: inline-block;
+        font-size: 28px;
+        color: #eee;
+        transition: color 0.3s, text-shadow 0.3s;
+        cursor: pointer;
+    }
+
+    /* efekt podświetlenia przy hover */
+    h2:hover {
+        color: #5dade2; /* jaśniejszy niebieski */
+        text-shadow: 0 0 8px #5dade2, 0 0 15px #3498db;
+    }
+    
+
+    </style>
+    <script type="text/javascript">
+        function Oblicz() {
+            const r = Number(document.getElementById("promien").value);
+            if (isNaN(r) || r <= 0) {
+                alert("Podaj poprawny promień (większy od 0)!");
+                return;
+            }
+            const bryla = document.getElementById("bryla").value;
+            let h = 0; // domyślna wartość
+            if (bryla !== "kula") {
+                h = Number(document.getElementById("wysokosc").value);
+                if (isNaN(h) || h <= 0) {
+                    alert("Podaj poprawną wysokość (większą od 0)!");
+                    return;
+                }
+            }
+
+            const material = document.querySelector('input[name="material"]:checked');
+            if (!material) {
+                alert("Wybierz materiał!");
+                return;
+            }
+            const gestosci = {
+                drewno: 700,
+                stal: 7850,
+                beton: 2400
+            };
+            const gestosc = gestosci[material.value];
+
+            const wynikiDoWyliczenia = Array.from(document.getElementById("wyniki").selectedOptions)
+                                            .map(option => option.value);
+
+            if (wynikiDoWyliczenia.length === 0) {
+                alert("Wybierz przynajmniej jeden wynik do wyświetlenia!");
+                return;
+            }
+
+            let V = 0, P = 0;
+
+            // --- OBJĘTOŚĆ I POLE ---
+            if (bryla === "kula") {
+                V = 4/3 * Math.PI * r**3;
+                P = 4 * Math.PI * r**2;
+            }
+            else if (bryla === "walec") {
+                V = Math.PI * r**2 * h;
+                P = 2 * Math.PI * r * (r + h);
+            }
+            else if (bryla === "stożek") {
+                V = (1/3) * Math.PI * r**2 * h;
+                let l = Math.sqrt(r**2 + h**2); // tworząca
+                P = Math.PI * r * (r + l);
+            }
+
+            const masa = V * gestosc;   
+
+            // --- TWORZENIE TABELI WYNIKÓW ---
+            let html = "<table><tr><th>Wynik</th><th>Wartość</th></tr>";
+
+            if (wynikiDoWyliczenia.includes("V"))
+                html += `<tr><td>Objętość</td><td>${V.toFixed(2)}</td></tr>`;
+
+            if (wynikiDoWyliczenia.includes("P"))
+                html += `<tr><td>Pole powierzchni</td><td>${P.toFixed(2)}</td></tr>`;
+
+            if (wynikiDoWyliczenia.includes("M"))
+                html += `<tr><td>Masa</td><td>${masa.toFixed(2)} kg</td></tr>`;
+
+            html += "</table>";
+
+            document.getElementById("wynik").innerHTML = html;
+        }
+
+        function pokazWysokosc(){
+            const bryla = document.getElementById("bryla").value;
+            const poleH = document.getElementById("poleH");
+            if(bryla === "kula"){
+                poleH.style.display = "none";
+            } else {
+                poleH.style.display = "block";
+            }
+        }
+        
     </script>
 </head>
 <body>
+    <h2>Obliczenia brył</h2>
     <form>
-         <label for="promien">Promień:</label>
-        <input type="text" id="promien" value="0"><br/>
-        
-        <button type="button" onclick="Oblicz()">Oblicz</button>
+        <label>Promień:</label>
+        <input type="text" id="promien" value="1"><br>
 
-        <span id="wynik" style="background-color: aqua;"></span>
+        <label>Bryła:</label>
+        <select id="bryla" onchange="pokazWysokosc()">
+            <option value="kula" selected>Kula</option>
+            <option value="walec">Walec</option>
+            <option value="stożek">Stożek</option>
+        </select>
+
+        <div id="poleH" style="display:none;">
+            <label>Wysokość:</label>
+            <input type="text" id="wysokosc" value="1"><br>
+        </div>
+
+        <label>Materiał:</label>
+            <label><input type="radio" name="material" value="drewno" checked> Drewno</label>
+            <label><input type="radio" name="material" value="stal"> Stal</label>
+            <label><input type="radio" name="material" value="beton"> Beton</label>
+        <br>
+
+        <label>Jakie wyniki?:</label>
+        <select id="wyniki" multiple size="3">
+            <option value="V" selected>Objętość</option>
+            <option value="P">Pole powierzchni</option>
+            <option value="M">Masa</option>
+        </select>
+
+        <button type="button" onclick="Oblicz()">Oblicz</button><br>
     </form>
+    <div id="wynik" style="margin-top:20px;"></div>
 </body>
 </html>
