@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wypożyczalnia Filmów CRUD - Debug Mode</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 20px; line-height: 1.6; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        
+        .form-container { background-color: #eee; padding: 15px; border-radius: 5px; transition: background-color 0.3s; }
+        .edit-mode-active { background-color: #fff3cd; border: 2px solid #ffeeba; }
+        
+        input[type="text"], input[type="number"] { padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px; }
+        button { cursor: pointer; padding: 8px 15px; border-radius: 4px; border: none; transition: 0.2s; }
+        #submit-btn { background-color: #28a745; color: white; }
+        #submit-btn:hover { background-color: #218838; }
+        .delete-btn { background-color: #dc3545; color: white; }
+        .edit-btn { background-color: #ffc107; color: black; }
+        
+        /* Styl panelu debugowania */
+        #debug-console { 
+            margin-top: 30px; 
+            padding: 15px; 
+            background: #222; 
+            color: #0f0; 
+            font-family: monospace; 
+            border-radius: 5px; 
+            max-height: 250px; 
+            overflow-y: auto;
+            border: 3px solid #444;
+        }
+        .debug-err { color: #ff6b6b; }
+        .debug-ok { color: #51cf66; }
+    </style>
+</head>
+<body>
+
+    <h1>🎬 Wypożyczalnia Filmów - Interfejs Klienta</h1>
+    
+    <table id="movies-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tytuł</th>
+                <th>Gatunek</th>
+                <th>Dostępny</th>
+                <th>Egzemplarze</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div id="form-box" class="form-container">
+        <h2><span id="form-mode-text">Dodaj</span> Film</h2>
+        <form id="movie-form" data-movie-id="">
+            <input type="hidden" id="movie-id"> 
+
+            <label>Tytuł:</label>
+            <input type="text" id="tytul" required size="40">
+            
+            <label>Gatunek:</label>
+            <input type="text" id="gatunek" size="20">
+
+            <label>Egzemplarze:</label>
+            <input type="number" id="ile_egzemplarzy" value="1" min="1" style="width: 60px;">
+
+            <label>Dostępny:</label>
+            <input type="checkbox" id="dostepny_do_wypozyczenia" checked>
+
+            <div style="margin-top: 10px;">
+                <button type="submit" id="submit-btn">Dodaj Rekord</button>
+                <button type="button" id="cancel-btn" style="display: none; background-color: #6c757d; color: white;">Anuluj Edycję</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="debug-console">
+        <div>> System gotowy. Oczekiwanie na akcję...</div>
+    </div>
+
+    <script type="module">
+    // 1. IMPORT MODUŁÓW
+    // Import klasy Movie (model danych) z lokalnego pliku model.js.
+    import { Movie } from './model.js';
+    // Import funkcji CRUD (Create, Read, Update, Delete) oraz adresu bazowego API 
+    // z modułu serviceApi.js, który odpowiada za komunikację REST.
+    import { createMovie, readMovies, readMovie, updateMovie, deleteMovie, API_BASE_URL } from './serviceApi.js';
+
+    // 2. ZMIENNE DOM
+    // Pobranie referencji do kluczowych elementów HTML (tabela, formularz, konsola debugowania).
+    const tableBody = document.querySelector('#movies-table tbody');
+    const form = document.getElementById('movie-form');
+    const formBox = document.getElementById('form-box');
+    const debugDiv = document.getElementById('debug-console');
+
+    // 3. FUNKCJE POMOCNICZE
+
+    /**
+     * Wyświetla komunikat w panelu debugowania na stronie (debug-console).
+     * @param {string} msg Wiadomość do wyświetlenia.
+     * @param {string} type 'ok' (zielony dla sukcesu), 'err' (czerwony dla błędu) lub pusty (domyślny).
+     */
+    const logDebug = (msg, type = '') => {
+        const entry = document.createElement('div');
+        const time = new Date().toLocaleTimeString();
+        if (type === 'err') entry.className = 'debug-err';
+        if (type === 'ok') entry.className = 'debug-ok';
+        entry.textContent = `[${time}] ${msg}`;
+        // Dodawanie najnowszej wiadomości na początek listy (prepend)
+        debugDiv.prepend(entry);
+    };
+
+    /**
+     * Sprawdza, czy formularz jest w trybie edycji.
+     * Detekcja odbywa się na podstawie atrybutu data-movieId w formularzu.
+     * @returns {boolean} True, jeśli ID istnieje (tryb edycji).
+     */
+    const isEditMode = () => !!form.dataset.movieId;
+
+    /**
+     * Czyści formularz i ustawia go w tryb dodawania nowego rekordu.
+     */
+    const resetForm = () => {
+        form.reset();
+        // Usunięcie ID, co przełącza na tryb dodawania
+        form.dataset.movieId = ''; 
+        formBox.classList.remove('edit-mode-active');
+        document.getElementById('form-mode-text').textContent = 'Dodaj';
+        document.getElementById('submit-btn').textContent = 'Dodaj Rekord';
+        document.getElementById('cancel-btn').style.display = 'none';
+        logDebug("Formularz zresetowany.");
+    };
+
+    // 4. FUNKCJA ODSWIEŻAJĄCA TABELĘ (READ)
+
+    /**
+     * Pobiera dane filmów z API i renderuje tabelę HTML.
+     */
+    const refreshTable = async () => {
+        logDebug("Pobieranie listy filmów z API...");
+        try {
+            let movies = await readMovies(); // Wywołanie funkcji z serviceApi.js
+            
+            // Logika bezpieczeństwa: upewnienie się, że otrzymano tablicę
+            if (movies && !Array.isArray(movies)) {
+                logDebug("Uwaga: readMovies zwróciło pojedynczy obiekt — konwertuję na tablicę.", "err");
+                movies = [movies];
+            }
+            if (!movies) {
+                logDebug("readMovies zwróciło null/undefined — ustawiam pustą listę.", "err");
+                movies = [];
+            }
+
+            // Wyświetlenie danych w konsoli przeglądarki dla ułatwienia debugowania
+            console.group("Lista Filmów");
+            console.table(movies);
+            console.groupEnd();
+
+            // Czyszczenie tabeli przed ponownym renderowaniem
+            tableBody.innerHTML = '';
+            
+            // Iteracja i renderowanie wierszy
+            movies.forEach(movie => {
+                if (!movie) return; // Pominięcie pustych wpisów
+                const row = document.createElement('tr');
+                // Użycie operatora ?? (nullish coalescing) dla bezpiecznego wyświetlania
+                row.innerHTML = `
+                    <td>${movie.id ?? '—'}</td>
+                    <td>${movie.tytul ?? '—'}</td>
+                    <td>${movie.gatunek || '---'}</td>
+                    <td>${movie.dostepny_do_wypozyczenia ? '✅' : '❌'}</td>
+                    <td>${movie.ile_egzemplarzy ?? 0}</td>
+                    <td>
+                        <button class="edit-btn" data-movie-id="${movie.id}">Edytuj</button>
+                        <button class="delete-btn" data-movie-id="${movie.id}">Usuń</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+            logDebug(`Odświeżono tabelę. Liczba rekordów: ${movies.length}`, 'ok');
+        } catch (error) {
+            // Obsługa i logowanie błędów komunikacji/parsowania
+            logDebug(`BŁĄD w refreshTable: ${error.message}`, 'err');
+            // Wyświetlenie fragmentu stosu błędów
+            if (error.stack) logDebug(error.stack, 'err'); 
+            console.error("Błąd w refreshTable:", error);
+        }
+    };
+
+    // 5. OBSŁUGA FORMULARZA (SUBMIT - CREATE/UPDATE)
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // Pobranie ID: jeśli tryb edycji, to parsujemy data-movieId, w przeciwnym razie null.
+        const id = isEditMode() ? parseInt(form.dataset.movieId) : null;
+        
+        // Utworzenie nowego obiektu Movie z danych formularza
+        const movieObj = new Movie(
+            id,
+            document.getElementById('tytul').value,
+            document.getElementById('gatunek').value,
+            document.getElementById('dostepny_do_wypozyczenia').checked,
+            parseInt(document.getElementById('ile_egzemplarzy').value)
+        );
+
+        logDebug(`${isEditMode() ? 'Aktualizacja' : 'Dodawanie'} filmu: ${movieObj.tytul}...`);
+        console.log("Wysyłany obiekt:", movieObj.toApiObject());
+
+        try {
+            if (isEditMode()) {
+                // Wywołanie aktualizacji (PUT)
+                await updateMovie(id, movieObj);
+                logDebug(`Zaktualizowano film o ID ${id}`, 'ok');
+            } else {
+                // Wywołanie tworzenia (POST)
+                const created = await createMovie(movieObj);
+                logDebug(`Dodano nowy film. Nadane ID: ${created.id}`, 'ok');
+            }
+            // Po sukcesie: zresetowanie formularza i odświeżenie danych w tabeli
+            resetForm();
+            await refreshTable();
+        } catch (error) {
+            logDebug(`BŁĄD OPERACJI: ${error.message}`, 'err');
+            console.error(error);
+        }
+    });
+
+    // 6. OBSŁUGA KLIKNIĘĆ W TABELI (DELETE/EDIT)
+
+    tableBody.addEventListener('click', async (e) => {
+        // Odczytanie ID rekordu z klikniętego elementu (np. przycisku)
+        const id = e.target.dataset.movieId;
+        if (!id) return; // Jeśli kliknięto poza przyciskiem
+
+        if (e.target.classList.contains('delete-btn')) {
+            // OBSŁUGA USUWANIA
+            if (confirm(`Usunąć film ID ${id}?`)) {
+                logDebug(`Usuwanie filmu ID ${id}...`);
+                try {
+                    await deleteMovie(id); // Wywołanie DELETE
+                    logDebug(`Usunięto pomyślnie.`, 'ok');
+                    await refreshTable(); // Odświeżenie
+                } catch (error) {
+                    logDebug(`BŁĄD USUWANIA: ${error.message}`, 'err');
+                }
+            }
+        } else if (e.target.classList.contains('edit-btn')) {
+            // OBSŁUGA EDYCJI (Ładowanie danych do formularza)
+            logDebug(`Ładowanie danych filmu ID ${id} do edycji...`);
+            try {
+                const movie = await readMovie(id); // Pobranie pojedynczego rekordu
+                
+                // Ustawienie data-movieId w formularzu (przełączenie na tryb edycji)
+                form.dataset.movieId = movie.id;
+                
+                // Wypełnianie pól formularza
+                // Użycie .trim() jest ważne dla usunięcia niechcianych białych znaków,
+                // które mogły zostać zapisane w bazie danych (np. w polach NCHAR/VARCHAR).
+                document.getElementById('tytul').value = movie.tytul.trim();
+                document.getElementById('gatunek').value = movie.gatunek ? movie.gatunek.trim() : '';
+                document.getElementById('ile_egzemplarzy').value = movie.ile_egzemplarzy;
+                document.getElementById('dostepny_do_wypozyczenia').checked = movie.dostepny_do_wypozyczenia;
+
+                // Wizualne przełączenie formularza na tryb edycji
+                formBox.classList.add('edit-mode-active');
+                document.getElementById('form-mode-text').textContent = 'Edytuj (ID: ' + id + ')';
+                document.getElementById('submit-btn').textContent = 'Zapisz Zmiany';
+                document.getElementById('cancel-btn').style.display = 'inline';
+                logDebug("Dane załadowane. Formularz gotowy do edycji.");
+            } catch (error) {
+                logDebug(`BŁĄD EDYCJI: ${error.message}`, 'err');
+            }
+        }
+    });
+
+    // 7. INICJALIZACJA
+
+    // Rejestracja zdarzenia dla przycisku Anuluj Edycję
+    document.getElementById('cancel-btn').addEventListener('click', resetForm);
+    
+    // Wymagane: Automatyczne ładowanie danych przy wczytaniu strony.
+    document.addEventListener('DOMContentLoaded', refreshTable);
+    
+    // Początkowy komunikat w konsoli debugowania
+    logDebug(`Klient uruchomiony. Adres API: ${API_BASE_URL}`);
+</script>
+</body>
+</html>

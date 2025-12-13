@@ -7,12 +7,23 @@ from models import Movie
 from schemas import MovieRead, MovieCreate, MovieUpdate
 from database import get_db
 
+from fastapi.middleware.cors import CORSMiddleware
+
 import logging
 logger = logging.getLogger(__name__)
+
 
 app = FastAPI(
     title="Wypożyczalnia Filmów API",
     description="Usługa REST CRUD na pojedynczej tabeli 'filmy'."
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500"],  # adres Twojego frontendu (Live Server)
+    allow_credentials=True,
+    allow_methods=["*"],  # GET, POST, PUT, DELETE itp.
+    allow_headers=["*"],
 )
 
 # --- CREATE ---

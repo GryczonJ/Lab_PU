@@ -3,11 +3,9 @@ from pydantic import BaseModel, Field
 from database import Base
 
 
-# --- Definicja Modelu SQLAlchemy ORM ---
 class Movie(Base):
     __tablename__ = "filmy"
 
-   
     id = Column(Integer, primary_key=True, index=True)
     tytul = Column(String(255), index=True, nullable=False)
     gatunek = Column(String(100))
